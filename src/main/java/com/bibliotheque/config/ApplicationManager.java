@@ -39,7 +39,7 @@ public class ApplicationManager {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        driver.navigate().to("http://localhost:8080");
+        driver.navigate().to("http://localhost:5173");
 
         return driver;
     }
