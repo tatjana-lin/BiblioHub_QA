@@ -17,12 +17,12 @@ public class RegistrationPage extends BasePage {
     @FindBy(id = "repeatPassword")
     WebElement repeatPasswordInput;
 
-    public RegistrationPage enterPersonalData(String email, String password) {
+    public RegistrationPage enterPersonalData(String email, String password, String repeatPass) {
         type(emailInput, email);
         type(passwordInput, password);
-        type(repeatPasswordInput, password);
+        type(repeatPasswordInput, repeatPass);
 
-        return new RegistrationPage(driver);
+        return this;
     }
 
     @FindBy(css = "button")
@@ -38,6 +38,27 @@ public class RegistrationPage extends BasePage {
 
     public RegistrationPage verifyEmailErrorMessage(String message) {
         Assert.assertTrue(shouldHaveText(emailErrorMessage, message, 10));
+        return this;
+    }
+
+    @FindBy(xpath = "//input[@id='password']/following-sibling::div")
+    WebElement passErrorMessage;
+    public RegistrationPage verifyPasswordErrorMessage(String message) {
+        Assert.assertTrue(shouldHaveText(passErrorMessage, message, 10));
+        return this;
+    }
+
+    public RegistrationPage enterPersonalDataWithWrongPassConfirm(String email, String password, String passConfirmation) {
+        type(emailInput, email);
+        type(passwordInput, password);
+        type(repeatPasswordInput, passConfirmation);
+        return this;
+    }
+
+    @FindBy(xpath = "//input[@id='repeatPassword']/following-sibling::div")
+    WebElement repeatPassErrorMessage;
+    public RegistrationPage verifyRepeatPassErrorMessage(String message) {
+        Assert.assertTrue(shouldHaveText(repeatPassErrorMessage, message, 10));
         return this;
     }
 }

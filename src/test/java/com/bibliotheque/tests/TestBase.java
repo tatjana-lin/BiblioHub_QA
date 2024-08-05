@@ -9,22 +9,25 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 public class TestBase {
 
     public WebDriver driver;
 
-    ApplicationManager app = new ApplicationManager(System.getProperty("browser","chrome"));
+    protected static ApplicationManager app = new ApplicationManager(System.getProperty("browser", "chrome"));
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     @BeforeMethod
-    public void startBrowser(Method method) {
-        logger.info("Start test: " + method.getName());
+    public void startBrowser(Method method, Object[] par) {
+
+        logger.info("Start test " + method.getName() + " with data: " + Arrays.asList(par));
+
         driver = app.startTest();
     }
 
-    @AfterMethod(enabled = false)
+    @AfterMethod(enabled = true)
     public void tearDown(ITestResult result) {
         app.stopTest();
 

@@ -1,7 +1,9 @@
 package com.bibliotheque.config;
 
+import com.bibliotheque.utils.MyListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringDecorator;
@@ -21,12 +23,20 @@ public class ApplicationManager {
     }
 
     public WebDriver startTest() {
+
+        System.err.close();
+
         if (browser.equals("edge")) {
             driver = new EdgeDriver();
         } else if (browser.equals("firefox")) {
             driver = new FirefoxDriver();
         } else if (browser.equals("chrome")) {
-            driver = new ChromeDriver();
+
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--disable-search-engine-choice-screen");
+            driver = new ChromeDriver(options);
+
+//            driver = new ChromeDriver();
         } else if (browser != null &&
                 !browser.equalsIgnoreCase("edge") &&
                 !browser.equalsIgnoreCase("firefox") &&
@@ -34,10 +44,10 @@ public class ApplicationManager {
             throw new IllegalArgumentException("Browser entered is not correct");
         }
 
-//        driver = new EventFiringDecorator(new MyListener()).decorate(driver);
+        driver = new EventFiringDecorator(new MyListener()).decorate(driver);
 
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.navigate().to("http://localhost:5173");
 

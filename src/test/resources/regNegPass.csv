@@ -1,0 +1,13 @@
+valid1@gmail.com,Vp1234$,Vp1234$,8
+valid1@gmail.com,VP12345$,VP12345$,small
+valid1@gmail.com,vp12345$,vp12345$,capital
+valid1@gmail.com,Vp123456,Vp123456,symbol
+valid1@gmail.com,4561237$,4561237$,small
+valid1@gmail.com,^&*%$;@*,^&*%$;@*,small
+valid1@gmail.com,Зщшгнеку,Зщшгнеку,small
+valid1@gmail.com,SELECT*FROM,SELECT*FROM,small
+valid1@gmail.com,www.wiki.org,www.wiki.org,capital
+valid1@gmail.com,valid@gmail.com,valid@gmail.com,capital
+valid1@gmail.com,0.0000000000000,0.0000000000000,small
+valid1@gmail.com,<section>,<section>,capital
+valid1@gmail.com,<script></script>,<script></script>,capital

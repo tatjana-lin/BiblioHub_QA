@@ -15,7 +15,7 @@ public class LoginTests extends TestBase {
     public void precondition() {
         home = new HomePage(driver);
         login = new LoginPage(driver);
-//        home.removeWindow().pause(1000);
+
         home.getLoginPage();
     }
 
@@ -39,8 +39,8 @@ public class LoginTests extends TestBase {
     }
 
     @Test
-    public void loginNegativeTestWithWrongEmail() {
-        login.enterPersonalData("valid1@email.", "validPass123$")
+    public void loginNegativeTestWithInvalidEmail() {
+        login.enterPersonalData("invalid1@email.", "validPass123$")
                 .verifyEmailErrorMessage("This is not an acceptable email");
     }
 
@@ -74,9 +74,8 @@ public class LoginTests extends TestBase {
                 .verifyPasswordErrorMessage("Password must contain at least one numerical digit");
     }
 
-// есть ли смысл делать такую параметризацию, если сообщения об ошибках разные???
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "negativeLoginWithWrongPasswordFromCsv")
-    public void loginNegativeTestWithWrongPassword1(String email, String password, String message) {
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "negativeLoginWithInvalidPassFromCsv")
+    public void loginNegativeTestWithInvalidPassword(String email, String password, String message) {
         login.enterPersonalData(email,password)
                 .verifyPasswordErrorMessage(message);
     }
