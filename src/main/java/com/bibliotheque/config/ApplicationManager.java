@@ -1,6 +1,7 @@
 package com.bibliotheque.config;
 
 import com.bibliotheque.utils.MyListener;
+import com.bibliotheque.utils.PropertiesLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,6 +18,8 @@ public class ApplicationManager {
     WebDriver driver;
     String browser;
     Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
+
+    public static String baseURL = PropertiesLoader.loadProperty("url");
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -49,7 +52,7 @@ public class ApplicationManager {
         driver.manage().window().maximize();
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        driver.navigate().to("http://localhost:5173");
+        driver.navigate().to(baseURL);
 
         return driver;
     }

@@ -1,5 +1,7 @@
 package com.bibliotheque.tests;
 
+import com.bibliotheque.data.MessageData;
+import com.bibliotheque.data.UserData;
 import com.bibliotheque.pages.HomePage;
 import com.bibliotheque.pages.RegistrationPage;
 import com.bibliotheque.utils.DataProviders;
@@ -31,7 +33,7 @@ public class RegistrationTests extends TestBase {
     public void registrationNegativeTestWithInvalidEmail(String email, String password, String repeatPass) {
 
         registration.enterPersonalData(email, password, repeatPass)
-                .verifyEmailErrorMessage("Input does not correspond with an email");
+                .verifyEmailErrorMessage(MessageData.emailErrorMessageReg);
     }
 
     @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeRegistrationWithInvalidPassFromCsv")
@@ -40,52 +42,46 @@ public class RegistrationTests extends TestBase {
         registration.enterPersonalData(email, password, repeatPass)
                 .verifyPasswordErrorMessage(message);
     }
-// ======================= возможно, лучше сделать мануально ======================================
+
     @Test
     public void registrationNegativeTestUserAlreadyExists() {
-        registration.enterPersonalData("valid1@gmail.com", "Vp12345$", "Vp12345$")
+        logger.info("Registration with data --> " + UserData.validEmail + " *** " + UserData.validPassword);
+
+        registration.enterPersonalData(UserData.validEmail, UserData.validPassword, UserData.validPassword)
                 .clickOnRegistrationButton()
-                .verifyErrorMessage("User already exists");
+                .verifyErrorMessage(MessageData.alreadyExistsMessage);
     }
-
-    @Test
-    public void registrationNegativeTestUserAlreadyExists1() {
-        registration.enterPersonalData("already.exists@gmail.com", "Exists1$", "Exists1$")
-                .clickOnRegistrationButton()
-                .clickOnLogOutLink();
-
-        home.getRegistrationPage()
-                .enterPersonalData("already.exists@gmail.com", "Exists1$", "Exists1$")
-                .clickOnRegistrationButton()
-                .verifyErrorMessage("User already exists");
-
-//        delete user
-
-    }
-// =====================================================================================================
 
     @Test
     public void registrationNegativeTestWithWrongPassConfirmation() {
-        registration.enterPersonalData("non-match@email.com", "Vp12345$", "Vp12345#")
-                .verifyRepeatPassErrorMessage("Passwords must coincide");
+        logger.info("Registration with data --> " + UserData.validEmail + " * " + UserData.validPassword + " * " + UserData.invalidPassConfirm);
+
+        registration.enterPersonalData(UserData.validEmail, UserData.validPassword, UserData.invalidPassConfirm)
+                .verifyRepeatPassErrorMessage(MessageData.invalidPassConfirmMessage);
     }
 
     @Test
     public void registrationNegativeTestWithEmptyEmailField() {
-        registration.enterPersonalData("", "validPass123$", "validPass123$")
-                .verifyEmailErrorMessage("Email required");
+        logger.info("Registration with data --> " + UserData.emptyEmail + " * " + UserData.validPassword);
+
+        registration.enterPersonalData(UserData.emptyEmail, UserData.validPassword, UserData.validPassword)
+                .verifyEmailErrorMessage(MessageData.emailRequiredMessage);
     }
 
     @Test
     public void registrationNegativeTestWithEmptyPasswordField() {
-        registration.enterPersonalData("valid1@email.com", "", "")
-                .verifyPasswordErrorMessage("Password required");
+        logger.info("Registration with data --> " + UserData.validEmail + " * " + UserData.emptyPassword);
+
+        registration.enterPersonalData(UserData.validEmail, UserData.emptyPassword, UserData.emptyPassword)
+                .verifyPasswordErrorMessage(MessageData.passwordRequiredMessage);
     }
 
     @Test
     public void registrationNegativeTestWithEmptyRepeatPassField() {
-        registration.enterPersonalData("valid1@email.com", "validPass123$","")
-                .verifyRepeatPassErrorMessage("Repeat password is required");
+        logger.info("Registration with data --> " + UserData.validEmail + " * " + UserData.validPassword + " * " + UserData.emptyRepeatPass);
+
+        registration.enterPersonalData(UserData.validEmail, UserData.validPassword, UserData.emptyRepeatPass)
+                .verifyRepeatPassErrorMessage(MessageData.repeatPassRequiredMessage);
     }
 
 

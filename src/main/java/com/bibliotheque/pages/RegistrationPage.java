@@ -1,11 +1,13 @@
 package com.bibliotheque.pages;
 
+import com.bibliotheque.utils.PropertiesLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 public class RegistrationPage extends BasePage {
+
     public RegistrationPage(WebDriver driver) {
         super(driver);
     }

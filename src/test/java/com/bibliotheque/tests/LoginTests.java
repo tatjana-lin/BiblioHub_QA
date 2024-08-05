@@ -1,5 +1,7 @@
 package com.bibliotheque.tests;
 
+import com.bibliotheque.data.MessageData;
+import com.bibliotheque.data.UserData;
 import com.bibliotheque.pages.HomePage;
 import com.bibliotheque.pages.LoginPage;
 import com.bibliotheque.utils.DataProviders;
@@ -21,58 +23,66 @@ public class LoginTests extends TestBase {
 
     @Test
     public void loginPositiveTest() {
-        login.enterPersonalData("valid1@email.com", "validPass123$")
+        logger.info("Login with data --> " + UserData.validEmail + " *** " + UserData.validPassword);
+
+        login.enterPersonalData(UserData.validEmail, UserData.validPassword)
                 .clickOnLoginButton();
 //                .verifySignOutBtnIsPresent();
     }
 
     @Test
     public void loginNegativeTestWithEmptyEmailField() {
-        login.enterPersonalData("", "validPass123$")
-                .verifyEmailErrorMessage("Email required to login");
+        logger.info("Login with data --> " + UserData.emptyEmail + " *** " + UserData.validPassword);
+
+        login.enterPersonalData(UserData.emptyEmail, UserData.validPassword)
+                .verifyEmailErrorMessage(MessageData.emailRequiredMessage);
     }
 
     @Test
     public void loginNegativeTestWithEmptyPasswordField() {
-        login.enterPersonalData("valid1@email.com", "")
-                .verifyPasswordErrorMessage("Password required for login");
+        logger.info("Login with data --> " + UserData.validEmail + " *** " + UserData.emptyPassword);
+
+        login.enterPersonalData(UserData.validEmail, UserData.emptyPassword)
+                .verifyPasswordErrorMessage(MessageData.passwordRequiredMessage);
     }
 
     @Test
     public void loginNegativeTestWithInvalidEmail() {
-        login.enterPersonalData("invalid1@email.", "validPass123$")
-                .verifyEmailErrorMessage("This is not an acceptable email");
+        logger.info("Login with data --> " + UserData.invalidEmail + " *** " + UserData.validPassword);
+
+        login.enterPersonalData(UserData.invalidEmail, UserData.validPassword)
+                .verifyEmailErrorMessage(MessageData.emailErrorMessage);
     }
 
-    @Test
-    public void loginNegativeTestWithShortPassword() {
-        login.enterPersonalData("valid1@email.com", "Vp1234$")
-                .verifyPasswordErrorMessage("Password must contain at least 8 symbols");
-    }
-
-    @Test
-    public void loginNegativeTestWithoutSmallLetterInPassword() {
-        login.enterPersonalData("valid1@email.com", "VP12345$")
-                .verifyPasswordErrorMessage("Password must contain at least one small letter");
-    }
-
-    @Test
-    public void loginNegativeTestWithoutCapitalLetterInPassword() {
-        login.enterPersonalData("valid1@email.com", "vp12345$")
-                .verifyPasswordErrorMessage("Password must contain at least one capital letter");
-    }
-
-    @Test
-    public void loginNegativeTestWithoutSpecSymbolInPassword() {
-        login.enterPersonalData("valid1@email.com", "Vp123456")
-                .verifyPasswordErrorMessage("Password must contain at least one special symbol");
-    }
-
-    @Test
-    public void loginNegativeTestWithoutDigitInPassword() {
-        login.enterPersonalData("valid1@email.com", "Vpvpvpv$")
-                .verifyPasswordErrorMessage("Password must contain at least one numerical digit");
-    }
+//    @Test
+//    public void loginNegativeTestWithShortPassword() {
+//        login.enterPersonalData("valid1@email.com", "Vp1234$")
+//                .verifyPasswordErrorMessage("Password must contain at least 8 symbols");
+//    }
+//
+//    @Test
+//    public void loginNegativeTestWithoutSmallLetterInPassword() {
+//        login.enterPersonalData("valid1@email.com", "VP12345$")
+//                .verifyPasswordErrorMessage("Password must contain at least one small letter");
+//    }
+//
+//    @Test
+//    public void loginNegativeTestWithoutCapitalLetterInPassword() {
+//        login.enterPersonalData("valid1@email.com", "vp12345$")
+//                .verifyPasswordErrorMessage("Password must contain at least one capital letter");
+//    }
+//
+//    @Test
+//    public void loginNegativeTestWithoutSpecSymbolInPassword() {
+//        login.enterPersonalData("valid1@email.com", "Vp123456")
+//                .verifyPasswordErrorMessage("Password must contain at least one special symbol");
+//    }
+//
+//    @Test
+//    public void loginNegativeTestWithoutDigitInPassword() {
+//        login.enterPersonalData("valid1@email.com", "Vpvpvpv$")
+//                .verifyPasswordErrorMessage("Password must contain at least one numerical digit");
+//    }
 
     @Test(dataProviderClass = DataProviders.class,dataProvider = "negativeLoginWithInvalidPassFromCsv")
     public void loginNegativeTestWithInvalidPassword(String email, String password, String message) {

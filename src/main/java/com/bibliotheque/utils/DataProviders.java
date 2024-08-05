@@ -12,11 +12,12 @@ import java.util.List;
 
 public class DataProviders {
 
-    @DataProvider
-    public Iterator<Object[]> positiveRegistrationFromCsv() throws IOException {
+    String path;
+
+    private List<Object[]> getList(String path) throws IOException {
         List<Object[]> list = new ArrayList<>();
 
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/user.csv")));
+        BufferedReader reader = new BufferedReader(new FileReader(new File(path)));
 
         String line = reader.readLine();
 
@@ -24,98 +25,70 @@ public class DataProviders {
             list.add(line.split(","));
             line = reader.readLine();
         }
+        return list;
+    }
+
+    @DataProvider
+    public Iterator<Object[]> positiveRegistrationFromCsv() throws IOException {
+
+        path = "src/test/resources/user.csv";
+        List<Object[]> list = getList(path);
         return list.iterator();
+
     }
 
     @DataProvider
     public Iterator<Object[]> negativeRegistrationWithInvalidEmailFromCsv() throws IOException {
-        List<Object[]> list = new ArrayList<>();
 
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/regNegEmail.csv")));
-
-        String line = reader.readLine();
-
-        while (line != null) {
-            list.add(line.split(","));
-            line = reader.readLine();
-        }
+        path = "src/test/resources/regNegEmail.csv";
+        List<Object[]> list = getList(path);
         return list.iterator();
+
     }
 
     @DataProvider
     public Iterator<Object[]> negativeRegistrationWithInvalidPassFromCsv() throws IOException {
-        List<Object[]> list = new ArrayList<>();
 
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/regNegPass.csv")));
-
-        String line = reader.readLine();
-
-        while (line != null) {
-            list.add(line.split(","));
-            line = reader.readLine();
-        }
+        path = "src/test/resources/regNegPass.csv";
+        List<Object[]> list = getList(path);
         return list.iterator();
-    }
 
+    }
 
     @DataProvider
     public Iterator<Object[]> negativeLoginWithInvalidPassFromCsv() throws IOException {
-        List<Object[]> list = new ArrayList<>();
 
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/loginNegPass.csv")));
-
-        String line = reader.readLine();
-
-        while (line != null) {
-            list.add(line.split(","));
-            line = reader.readLine();
-        }
+        path = "src/test/resources/loginNegPass.csv";
+        List<Object[]> list = getList(path);
         return list.iterator();
+
     }
 
     @DataProvider
     public Iterator<Object[]> positiveSearchByTitleFromCsv() throws IOException {
-        List<Object[]> list = new ArrayList<>();
 
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/searchTitlePos.csv")));
-
-        String line = reader.readLine();
-
-        while (line != null) {
-            list.add(line.split(","));
-            line = reader.readLine();
-        }
+        path = "src/test/resources/searchTitlePos.csv";
+        List<Object[]> list = getList(path);
         return list.iterator();
+
     }
 
     @DataProvider
     public Iterator<Object[]> positiveSearchByAuthorFromCsv() throws IOException {
-        List<Object[]> list = new ArrayList<>();
 
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/searchAuthorPos.csv")));
-
-        String line = reader.readLine();
-
-        while (line != null) {
-            list.add(line.split(","));
-            line = reader.readLine();
-        }
+        path = "src/test/resources/searchAuthorPos.csv";
+        List<Object[]> list = getList(path);
         return list.iterator();
+
     }
 
     @DataProvider
     public Iterator<Object[]> negativeSearchFromCsv() throws IOException {
-        List<Object[]> list = new ArrayList<>();
 
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/searchNeg.csv")));
-
-        String line = reader.readLine();
-
-        while (line != null) {
-            list.add(line.split(","));
-            line = reader.readLine();
-        }
+        path = "src/test/resources/searchNeg.csv";
+        List<Object[]> list = getList(path);
         return list.iterator();
+
     }
 
 

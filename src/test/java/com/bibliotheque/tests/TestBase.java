@@ -1,6 +1,7 @@
 package com.bibliotheque.tests;
 
 import com.bibliotheque.config.ApplicationManager;
+import com.bibliotheque.utils.PropertiesLoader;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ public class TestBase {
     protected static ApplicationManager app = new ApplicationManager(System.getProperty("browser", "chrome"));
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
+
 
     @BeforeMethod
     public void startBrowser(Method method, Object[] par) {
