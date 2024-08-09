@@ -46,6 +46,7 @@ public class DataProviders {
 
     }
 
+
     @DataProvider
     public Iterator<Object[]> negativeRegistrationWithInvalidPassFromCsv() throws IOException {
 
@@ -54,7 +55,14 @@ public class DataProviders {
         return list.iterator();
 
     }
+    @DataProvider
+    public Iterator<Object[]> negativeLoginWithInvalidEmailFromCsv() throws IOException {
 
+        path = "src/test/resources/loginNegEmail.csv";
+        List<Object[]> list = getList(path);
+        return list.iterator();
+
+    }
     @DataProvider
     public Iterator<Object[]> negativeLoginWithInvalidPassFromCsv() throws IOException {
 

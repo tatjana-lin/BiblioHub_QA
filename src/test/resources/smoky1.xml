@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SmokyTest" verbose="1">
+    <test name="NegativeUser">
+        <classes>
+            <class name="com.bibliotheque.tests.LoginTests">
+                <methods>
+                    <exclude name=".*Positive.*"/>
+                    <include name=".*loginNegativeTestWithEmptyPasswordField.*"/>
+                    <include name=".*loginNegativeTestWithEmptyEmailField.*"/>
+
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+</suite>

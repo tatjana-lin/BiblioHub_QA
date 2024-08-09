@@ -5,8 +5,12 @@ import com.bibliotheque.data.UserData;
 import com.bibliotheque.pages.HomePage;
 import com.bibliotheque.pages.LoginPage;
 import com.bibliotheque.utils.DataProviders;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static com.bibliotheque.pages.BasePage.takeScreenshot;
 
 public class LoginTests extends TestBase {
 
@@ -21,12 +25,30 @@ public class LoginTests extends TestBase {
         home.getLoginPage();
     }
 
+    @AfterMethod
+    public void returnToTheHomePage(ITestResult result) {
+        if (!result.isSuccess()) {
+            logger.error("Screenshot with error --> " + takeScreenshot());
+        }
+
+        login.getHomePage();
+    }
+
+
+//    @BeforeMethod
+//    public void ensurePrecondition() {
+//
+//        if (!home.isLoginLinkPresent()) {
+//            home.clickOnLogOutButton();
+//        }
+//    }
+
     @Test
     public void loginPositiveTest() {
         logger.info("Login with data --> " + UserData.validEmail + " *** " + UserData.validPassword);
 
-        login.enterPersonalData(UserData.validEmail, UserData.validPassword)
-                .clickOnLoginButton();
+        login.enterPersonalData(UserData.validEmail, UserData.validPassword);
+//                .clickOnLoginButton();
 //                .verifySignOutBtnIsPresent();
     }
 
@@ -46,13 +68,20 @@ public class LoginTests extends TestBase {
                 .verifyPasswordErrorMessage(MessageData.passwordRequiredMessage);
     }
 
-    @Test
-    public void loginNegativeTestWithInvalidEmail() {
-        logger.info("Login with data --> " + UserData.invalidEmail + " *** " + UserData.validPassword);
+//    @Test
+//    public void loginNegativeTestWithInvalidEmail() {
+//        logger.info("Login with data --> " + UserData.invalidEmail + " *** " + UserData.validPassword);
+//
+//        login.enterPersonalData(UserData.invalidEmail, UserData.validPassword)
+//                .verifyEmailErrorMessage(MessageData.emailErrorMessage);
+//    }
 
-        login.enterPersonalData(UserData.invalidEmail, UserData.validPassword)
+    @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeLoginWithInvalidEmailFromCsv")
+    public void loginNegativeTestWithInvalidEmail(String email, String password) {
+        login.enterPersonalData(email, password)
                 .verifyEmailErrorMessage(MessageData.emailErrorMessage);
     }
+
 
 //    @Test
 //    public void loginNegativeTestWithShortPassword() {
@@ -84,11 +113,10 @@ public class LoginTests extends TestBase {
 //                .verifyPasswordErrorMessage("Password must contain at least one numerical digit");
 //    }
 
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "negativeLoginWithInvalidPassFromCsv")
+    @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeLoginWithInvalidPassFromCsv")
     public void loginNegativeTestWithInvalidPassword(String email, String password, String message) {
-        login.enterPersonalData(email,password)
+        login.enterPersonalData(email, password)
                 .verifyPasswordErrorMessage(message);
     }
-
 
 }

@@ -48,4 +48,12 @@ public class HomePage extends BasePage {
         select.selectByVisibleText(searchBy);
         return this;
     }
+
+    @FindBy(css = "nav a:nth-child(3)")
+    WebElement profileLink;
+
+    public UsersProfilePage getUsersProfilePage() {
+        click(profileLink);
+        return new UsersProfilePage(driver);
+    }
 }

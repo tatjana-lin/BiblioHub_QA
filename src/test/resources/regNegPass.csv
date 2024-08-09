@@ -3,6 +3,7 @@ valid1@gmail.com,VP12345$,VP12345$,small
 valid1@gmail.com,vp12345$,vp12345$,capital
 valid1@gmail.com,Vp123456,Vp123456,symbol
 valid1@gmail.com,4561237$,4561237$,small
+valid1@gmail.com,vPPPPPP$,vPPPPPP$,digit
 valid1@gmail.com,^&*%$;@*,^&*%$;@*,small
 valid1@gmail.com,Зщшгнеку,Зщшгнеку,small
 valid1@gmail.com,SELECT*FROM,SELECT*FROM,small

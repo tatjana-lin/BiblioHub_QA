@@ -1,6 +1,5 @@
 package com.bibliotheque.pages;
 
-import com.bibliotheque.utils.PropertiesLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,9 +29,9 @@ public class RegistrationPage extends BasePage {
     @FindBy(css = "button")
     WebElement registrationBtn;
 
-    public UserPersonalPage clickOnRegistrationButton() {
+    public UsersProfilePage clickOnRegistrationButton() {
         click(registrationBtn);
-        return new UserPersonalPage(driver);
+        return new UsersProfilePage(driver);
     }
 
     @FindBy(xpath = "//input[@id='email']/following-sibling::div")
@@ -50,12 +49,6 @@ public class RegistrationPage extends BasePage {
         return this;
     }
 
-    public RegistrationPage enterPersonalDataWithWrongPassConfirm(String email, String password, String passConfirmation) {
-        type(emailInput, email);
-        type(passwordInput, password);
-        type(repeatPasswordInput, passConfirmation);
-        return this;
-    }
 
     @FindBy(xpath = "//input[@id='repeatPassword']/following-sibling::div")
     WebElement repeatPassErrorMessage;
@@ -63,4 +56,5 @@ public class RegistrationPage extends BasePage {
         Assert.assertTrue(shouldHaveText(repeatPassErrorMessage, message, 10));
         return this;
     }
+
 }

@@ -1,8 +1,8 @@
 package com.bibliotheque.pages;
 
-import com.bibliotheque.utils.PropertiesLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.bidi.log.Log;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
@@ -20,15 +20,14 @@ public class LoginPage extends BasePage {
     public LoginPage enterPersonalData(String email, String password) {
         type(emailInput, email);
         type(passInput, password);
-
         return this;
     }
 
     @FindBy(css="button")
     WebElement loginButton;
-    public UserPersonalPage clickOnLoginButton() {
+    public UsersProfilePage clickOnLoginButton() {
         click(loginButton);
-        return new UserPersonalPage(driver);
+        return new UsersProfilePage(driver);
     }
 
     @FindBy(xpath = "//input[@id='email']/following-sibling::div")
