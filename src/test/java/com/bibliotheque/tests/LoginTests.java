@@ -4,6 +4,7 @@ import com.bibliotheque.data.MessageData;
 import com.bibliotheque.data.UserData;
 import com.bibliotheque.pages.HomePage;
 import com.bibliotheque.pages.LoginPage;
+import com.bibliotheque.pages.UsersProfilePage;
 import com.bibliotheque.utils.DataProviders;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -16,11 +17,13 @@ public class LoginTests extends TestBase {
 
     HomePage home;
     LoginPage login;
+    UsersProfilePage profile;
 
     @BeforeMethod
     public void precondition() {
         home = new HomePage(driver);
         login = new LoginPage(driver);
+        profile = new UsersProfilePage(driver);
 
         home.getLoginPage();
     }
@@ -30,26 +33,37 @@ public class LoginTests extends TestBase {
         if (!result.isSuccess()) {
             logger.error("Screenshot with error --> " + takeScreenshot());
         }
-
         login.getHomePage();
     }
-
-
-//    @BeforeMethod
-//    public void ensurePrecondition() {
-//
-//        if (!home.isLoginLinkPresent()) {
-//            home.clickOnLogOutButton();
-//        }
-//    }
 
     @Test
     public void loginPositiveTest() {
         logger.info("Login with data --> " + UserData.validEmail + " *** " + UserData.validPassword);
 
-        login.enterPersonalData(UserData.validEmail, UserData.validPassword);
-//                .clickOnLoginButton();
-//                .verifySignOutBtnIsPresent();
+        login.enterPersonalData(UserData.validEmail, UserData.validPassword)
+                .clickOnLoginButton()
+                .verifyLogOutLinkIsPresent();
+        profile.clickOnLogOutLink();
+    }
+
+//    @Test
+//    public void loginPositiveDemoTest() {
+//        logger.info("Login with data --> " + UserData.registerEmail + " *** " + UserData.registerPassword);
+//
+//        login.enterPersonalData(UserData.registerEmail, UserData.registerPassword)
+//                .clickOnLoginButton()
+//                .verifyLogOutLinkIsPresent();
+//        profile.clickOnLogOutLink();
+//    }
+
+//    =========================================запускать вместе с Registration==============================================
+    @Test(dataProviderClass = DataProviders.class, dataProvider = "positiveDeleteApi")
+    public void loginPositiveTestFromCsv(String email, String password) {
+
+        login.enterPersonalData(email, password)
+                .clickOnLoginButton()
+                .verifyLogOutLinkIsPresent();
+        profile.clickOnLogOutLink();
     }
 
     @Test
@@ -77,7 +91,7 @@ public class LoginTests extends TestBase {
 //    }
 
     @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeLoginWithInvalidEmailFromCsv")
-    public void loginNegativeTestWithInvalidEmail(String email, String password) {
+    public void loginNegativeTestWithInvalidEmailFromCsv(String email, String password) {
         login.enterPersonalData(email, password)
                 .verifyEmailErrorMessage(MessageData.emailErrorMessage);
     }
@@ -114,7 +128,7 @@ public class LoginTests extends TestBase {
 //    }
 
     @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeLoginWithInvalidPassFromCsv")
-    public void loginNegativeTestWithInvalidPassword(String email, String password, String message) {
+    public void loginNegativeTestWithInvalidPasswordFromCsv(String email, String password, String message) {
         login.enterPersonalData(email, password)
                 .verifyPasswordErrorMessage(message);
     }

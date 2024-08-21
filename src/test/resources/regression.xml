@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="RegressionTest" verbose="1">
+    <test name="Regression">
+        <classes>
+            <class name="com.bibliotheque.tests.RegistrationTests"/>
+            <class name="com.bibliotheque.tests.LoginTests"/>
+            <class name="com.bibliotheque.tests.UsersProfileUpdateTest"/>
+            <class name="com.bibliotheque_API.tests.userController.RegistrationTests"/>
+            <class name="com.bibliotheque_API.tests.authController.LoginTests"/>
+            <class name="com.bibliotheque_API.tests.userController.UserUpdateTests"/>
+            <class name="com.bibliotheque_API.tests.userController.UserBlockTests"/>
+            <class name="com.bibliotheque_API.tests.userController.UserUnlockTests"/>
+            <class name="com.bibliotheque_API.tests.userController.GetAllUsersListTests"/>
+            <class name="com.bibliotheque_API.tests.userController.DeleteUserTests"/>
+        </classes>
+    </test>
+
+</suite>

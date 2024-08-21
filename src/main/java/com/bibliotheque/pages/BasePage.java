@@ -16,7 +16,8 @@ import java.util.NoSuchElementException;
 
 public class BasePage {
 
-    static WebDriver driver;
+    public static WebDriver driver;
+    JavascriptExecutor js;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -83,6 +84,11 @@ public class BasePage {
     public HomePage getHomePage() {
         click(homeElement);
         return new HomePage(driver);
+    }
+
+    public void clickWithJS(WebElement element, int x, int y){
+        js.executeScript("window.scrollBy("+ x +","+ y +")");
+        click(element);
     }
 
 

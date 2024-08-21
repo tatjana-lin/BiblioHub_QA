@@ -57,4 +57,17 @@ public class RegistrationPage extends BasePage {
         return this;
     }
 
+    @FindBy(css = "header>a" )
+    WebElement homeElement;
+    public HomePage getHomePage() {
+        click(homeElement);
+        return new HomePage(driver);
+    }
+
+    public ErrorPage clickOnRegistrationButtonError() {
+        click(registrationBtn);
+        return new ErrorPage(driver);
+    }
+
+
 }

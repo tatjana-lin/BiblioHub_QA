@@ -17,7 +17,7 @@ import static com.bibliotheque.pages.BasePage.takeScreenshot;
 
 public class TestBase {
 
-    public WebDriver driver;
+    public static WebDriver driver;
 
     protected static ApplicationManager app = new ApplicationManager(System.getProperty("browser", "chrome"));
 
@@ -65,7 +65,7 @@ public class TestBase {
 //        logger.info("***********************************************************************");
 //    }
 
-    @AfterSuite
+    @AfterSuite(enabled = false)
     public void tearDown() {
         app.stopTest();
 

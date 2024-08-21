@@ -26,6 +26,7 @@ public class LoginPage extends BasePage {
     @FindBy(css="button")
     WebElement loginButton;
     public UsersProfilePage clickOnLoginButton() {
+        pause(200);
         click(loginButton);
         return new UsersProfilePage(driver);
     }
@@ -42,6 +43,13 @@ public class LoginPage extends BasePage {
     public LoginPage verifyPasswordErrorMessage(String message) {
         Assert.assertTrue(shouldHaveText(passErrorMessage, message, 10));
         return this;
+    }
+
+    @FindBy(css = "header>a" )
+    WebElement homeElement;
+    public HomePage getHomePage() {
+        click(homeElement);
+        return new HomePage(driver);
     }
 
 }

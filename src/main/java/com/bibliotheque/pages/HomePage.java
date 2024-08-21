@@ -49,11 +49,14 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    @FindBy(css = "nav a:nth-child(3)")
-    WebElement profileLink;
+//    ========метод был действителен для входа в личный кабинет с Home Page===========
+//    @FindBy(css = "nav a:nth-child(3)")
+//    WebElement profileLink;
+//
+//    public UsersProfilePage getUsersProfilePage() {
+//        click(profileLink);
+//        return new UsersProfilePage(driver);
+//    }
 
-    public UsersProfilePage getUsersProfilePage() {
-        click(profileLink);
-        return new UsersProfilePage(driver);
-    }
+
 }

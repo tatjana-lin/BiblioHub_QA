@@ -4,8 +4,12 @@ import com.bibliotheque.data.UserData;
 import com.bibliotheque.pages.HomePage;
 import com.bibliotheque.pages.LoginPage;
 import com.bibliotheque.pages.UsersProfilePage;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static com.bibliotheque.pages.BasePage.takeScreenshot;
 
 public class UsersProfileUpdateTest extends TestBase {
 
@@ -13,18 +17,37 @@ public class UsersProfileUpdateTest extends TestBase {
     LoginPage login;
     UsersProfilePage profile;
 
-    @BeforeMethod
+    @BeforeMethod(enabled = true)
     public void precondition() {
         home = new HomePage(driver);
         login = new LoginPage(driver);
         profile = new UsersProfilePage(driver);
 
-//        login.enterPersonalData(UserData.validEmail, UserData.validPassword)
-//                .clickOnLoginButton();
-
-        home.getUsersProfilePage();
-
+        home.getLoginPage()
+                .enterPersonalData(UserData.validEmail, UserData.validPassword)
+                .clickOnLoginButton();
     }
+
+
+//    @BeforeMethod(enabled = true)
+//    public void preconditionDemo() {
+//        home = new HomePage(driver);
+//        login = new LoginPage(driver);
+//        profile = new UsersProfilePage(driver);
+//
+//        home.getLoginPage()
+//                .enterPersonalData(UserData.registerEmail, UserData.registerPassword)
+//                .clickOnLoginButton();
+//    }
+
+    @AfterMethod
+    public void logOut(ITestResult result) {
+        if (!result.isSuccess()) {
+            logger.error("Screenshot with error --> " + takeScreenshot());
+        }
+        profile.clickOnLogOutLink();
+    }
+
 //    ============================= удалить весь класс ? ================================
 
 //    @Test
@@ -36,5 +59,32 @@ public class UsersProfileUpdateTest extends TestBase {
 ////        home.getUsersProfilePage()
 ////                .verifyChangesAreSaved();
 //    }
+
+    @Test
+    public void fillInTheUsersProfilePositiveTest() {
+        profile.clickOnUpdateButton()
+                .enterPersonalData(UserData.firstName,
+                        UserData.lastName,
+                        UserData.phone,
+                        UserData.zip,
+                        UserData.country,
+                        UserData.city,
+                        UserData.street,
+                        UserData.house)
+                .clickOnSaveButton()
+                .verifySuccessAlertIsPresent();
+
+        profile.clickOnUpdateButton()
+                .enterPersonalData(UserData.firstName,
+                        UserData.lastName,
+                        UserData.phone,
+                        UserData.zip,
+                        UserData.country,
+                        UserData.city,
+                        UserData.newStreet,
+                        UserData.newHouse)
+                .clickOnSaveButton();
+
+    }
 
 }

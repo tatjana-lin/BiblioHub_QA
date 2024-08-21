@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Demo" verbose="1">
+    <test name="DemoTests">
+        <classes>
+            <class name="com.bibliotheque.tests.RegistrationTests">
+                <methods>
+                    <include name=".*registrationPositiveDemoTest.*"/>
+                </methods>
+            </class>
+
+            <class name="com.bibliotheque.tests.LoginTests">
+                <methods>
+                    <include name=".*loginPositiveDemoTest.*"/>
+                </methods>
+            </class>
+
+            <class name="com.bibliotheque.tests.UsersProfileUpdateTest"/>
+
+            <class name="com.bibliotheque_API.tests.userController.DeleteUserTests">
+                <methods>
+                    <include name=".*deleteUserApiSuccessDemoTest.*"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -2,6 +2,7 @@ package com.bibliotheque.config;
 
 import com.bibliotheque.utils.MyListener;
 import com.bibliotheque.utils.PropertiesLoader;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,7 +18,6 @@ public class ApplicationManager {
 
     WebDriver driver;
     String browser;
-    Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
 
     public static String baseURL = PropertiesLoader.loadProperty("url");
 
@@ -49,6 +49,8 @@ public class ApplicationManager {
 
         driver = new EventFiringDecorator(new MyListener()).decorate(driver);
 
+//        driver.manage().window().setSize(new Dimension(320, 568)); // Задаем размер окна для тестирования мобильной версии
+
         driver.manage().window().maximize();
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
@@ -56,6 +58,7 @@ public class ApplicationManager {
 
         return driver;
     }
+
     public void stopTest() {
         driver.quit();
     }

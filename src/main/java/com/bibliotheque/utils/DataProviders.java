@@ -46,7 +46,6 @@ public class DataProviders {
 
     }
 
-
     @DataProvider
     public Iterator<Object[]> negativeRegistrationWithInvalidPassFromCsv() throws IOException {
 
@@ -94,6 +93,49 @@ public class DataProviders {
     public Iterator<Object[]> negativeSearchFromCsv() throws IOException {
 
         path = "src/test/resources/searchNeg.csv";
+        List<Object[]> list = getList(path);
+        return list.iterator();
+
+    }
+
+    @DataProvider
+    public Iterator<Object[]> negativeLoginWithInvalidPassApi() throws IOException {
+
+        path = "src/test/resources/loginNegPassApi.csv";
+        List<Object[]> list = getList(path);
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> negativeRegistrationWithInvalidEmailApi() throws IOException {
+
+        path = "src/test/resources/regNegEmailApi.csv";
+        List<Object[]> list = getList(path);
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> negativeRegistrationWithInvalidPassApi() throws IOException {
+
+        path = "src/test/resources/regNegPassApi.csv";
+        List<Object[]> list = getList(path);
+        return list.iterator();
+
+    }
+
+    @DataProvider
+    public Iterator<Object[]> positiveRegistrationApi() throws IOException {
+
+        path = "src/test/resources/user_api.csv";
+        List<Object[]> list = getList(path);
+        return list.iterator();
+
+    }
+
+    @DataProvider
+    public Iterator<Object[]> positiveDeleteApi() throws IOException {
+
+        path = "src/test/resources/userDelApi.csv";
         List<Object[]> list = getList(path);
         return list.iterator();
 
