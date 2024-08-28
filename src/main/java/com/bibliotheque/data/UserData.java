@@ -25,6 +25,8 @@ public class UserData {
     public static final String unlockedEmail = PropertiesLoader.loadProperty("unlocked_user.email");
     public static final String unlockedPassword = PropertiesLoader.loadProperty("unlocked_user.password");
     public static final String roleUser = PropertiesLoader.loadProperty("role.user");
+    public static final String roleLibrary = PropertiesLoader.loadProperty("role.library");
+    public static final String roleAdmin = PropertiesLoader.loadProperty("role.admin");
 
     public static final String firstName = PropertiesLoader.loadProperty("profile.fName");
     public static final String lastName = PropertiesLoader.loadProperty("profile.lName");

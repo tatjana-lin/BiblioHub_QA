@@ -1,6 +1,5 @@
 package com.bibliotheque.pages;
 
-import com.bibliotheque.utils.PropertiesLoader;
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -89,6 +88,14 @@ public class BasePage {
     public void clickWithJS(WebElement element, int x, int y){
         js.executeScript("window.scrollBy("+ x +","+ y +")");
         click(element);
+    }
+
+    private static boolean isInvisible(final WebElement element) {
+        try {
+            return !element.isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException | StaleElementReferenceException var2) {
+            return true;
+        }
     }
 
 

@@ -4,7 +4,6 @@ import com.bibliotheque.data.MessageData;
 import com.bibliotheque.data.UserData;
 import com.bibliotheque.pages.HomePage;
 import com.bibliotheque.pages.LoginPage;
-import com.bibliotheque.pages.UsersProfilePage;
 import com.bibliotheque.utils.DataProviders;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -17,23 +16,20 @@ public class LoginTests extends TestBase {
 
     HomePage home;
     LoginPage login;
-    UsersProfilePage profile;
 
     @BeforeMethod
     public void precondition() {
         home = new HomePage(driver);
         login = new LoginPage(driver);
-        profile = new UsersProfilePage(driver);
 
         home.getLoginPage();
     }
 
     @AfterMethod
-    public void returnToTheHomePage(ITestResult result) {
+    public void negativeResultScreenshot(ITestResult result) {
         if (!result.isSuccess()) {
             logger.error("Screenshot with error --> " + takeScreenshot());
         }
-        login.getHomePage();
     }
 
     @Test
@@ -41,9 +37,10 @@ public class LoginTests extends TestBase {
         logger.info("Login with data --> " + UserData.validEmail + " *** " + UserData.validPassword);
 
         login.enterPersonalData(UserData.validEmail, UserData.validPassword)
+                .waitUntilAlertDisappears()
                 .clickOnLoginButton()
                 .verifyLogOutLinkIsPresent();
-        profile.clickOnLogOutLink();
+        home.clickOnLogOutLink();
     }
 
 //    @Test
@@ -51,19 +48,21 @@ public class LoginTests extends TestBase {
 //        logger.info("Login with data --> " + UserData.registerEmail + " *** " + UserData.registerPassword);
 //
 //        login.enterPersonalData(UserData.registerEmail, UserData.registerPassword)
+//                .waitUntilAlertDisappears()
 //                .clickOnLoginButton()
 //                .verifyLogOutLinkIsPresent();
-//        profile.clickOnLogOutLink();
+//        home.clickOnLogOutLink();
 //    }
 
-//    =========================================запускать вместе с Registration==============================================
+    //    =========================================запускать вместе с Registration==============================================
     @Test(dataProviderClass = DataProviders.class, dataProvider = "positiveDeleteApi")
     public void loginPositiveTestFromCsv(String email, String password) {
 
         login.enterPersonalData(email, password)
+                .waitUntilAlertDisappears()
                 .clickOnLoginButton()
                 .verifyLogOutLinkIsPresent();
-        profile.clickOnLogOutLink();
+        home.clickOnLogOutLink();
     }
 
     @Test
@@ -71,7 +70,8 @@ public class LoginTests extends TestBase {
         logger.info("Login with data --> " + UserData.emptyEmail + " *** " + UserData.validPassword);
 
         login.enterPersonalData(UserData.emptyEmail, UserData.validPassword)
-                .verifyEmailErrorMessage(MessageData.emailRequiredMessage);
+                .verifyEmailErrorMessage(MessageData.emailRequiredMessage)
+                .getHomePage();
     }
 
     @Test
@@ -79,7 +79,8 @@ public class LoginTests extends TestBase {
         logger.info("Login with data --> " + UserData.validEmail + " *** " + UserData.emptyPassword);
 
         login.enterPersonalData(UserData.validEmail, UserData.emptyPassword)
-                .verifyPasswordErrorMessage(MessageData.passwordRequiredMessage);
+                .verifyPasswordErrorMessage(MessageData.passwordRequiredMessage)
+                .getHomePage();
     }
 
 //    @Test
@@ -93,7 +94,8 @@ public class LoginTests extends TestBase {
     @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeLoginWithInvalidEmailFromCsv")
     public void loginNegativeTestWithInvalidEmailFromCsv(String email, String password) {
         login.enterPersonalData(email, password)
-                .verifyEmailErrorMessage(MessageData.emailErrorMessage);
+                .verifyEmailErrorMessage(MessageData.emailErrorMessage)
+                .getHomePage();
     }
 
 
@@ -130,7 +132,8 @@ public class LoginTests extends TestBase {
     @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeLoginWithInvalidPassFromCsv")
     public void loginNegativeTestWithInvalidPasswordFromCsv(String email, String password, String message) {
         login.enterPersonalData(email, password)
-                .verifyPasswordErrorMessage(message);
+                .verifyPasswordErrorMessage(message)
+                .getHomePage();
     }
 
 }

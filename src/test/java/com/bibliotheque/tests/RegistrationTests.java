@@ -26,11 +26,10 @@ public class RegistrationTests extends TestBase {
     }
 
     @AfterMethod
-    public void returnToTheHomePage(ITestResult result){
+    public void negativeResultScreenshot(ITestResult result) {
         if (!result.isSuccess()) {
             logger.error("Screenshot with error --> " + takeScreenshot());
         }
-        registration.getHomePage();
     }
 
 //    @Test
@@ -45,18 +44,20 @@ public class RegistrationTests extends TestBase {
     public void registrationPositiveTestFromCsv(String email, String password, String repeatPass) {
 
         registration.enterPersonalData(email, password, repeatPass)
+                .waitUntilAlertDisappears()
                 .clickOnRegistrationButton()
                 .verifyLogOutLinkIsPresent()
                 .clickOnLogOutLink();
 
     }
 
-//    =====================invalid@gmailcom падает, месседж не такой, ФЕ переделает=====================================
+    //    =====================invalid@gmailcom падает, месседж не такой, ФЕ переделает=====================================
     @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeRegistrationWithInvalidEmailFromCsv")
     public void registrationNegativeTestWithInvalidEmailFromCsv(String email, String password, String repeatPass) {
 
         registration.enterPersonalData(email, password, repeatPass)
                 .verifyEmailErrorMessage(MessageData.emailErrorMessageReg);
+        registration.getHomePage();
     }
 
     @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeRegistrationWithInvalidPassFromCsv")
@@ -64,24 +65,26 @@ public class RegistrationTests extends TestBase {
 
         registration.enterPersonalData(email, password, repeatPass)
                 .verifyPasswordErrorMessage(message);
+        registration.getHomePage();
     }
 
-//    ============= Кириллица с месседже. Не запускать, пока не исправят на бэке!============================
-//    @Test
-//    public void registrationNegativeTestUserAlreadyExists() {
-//        logger.info("Registration with data --> " + UserData.validEmail + " *** " + UserData.validPassword);
-//
-//        registration.enterPersonalData(UserData.validEmail, UserData.validPassword, UserData.validPassword)
-//                .clickOnRegistrationButtonError()
-//                .verifyErrorMessage(MessageData.alreadyExistsMessage);
-//    }
-//==============================================================================
+    @Test
+    public void registrationNegativeTestUserAlreadyExists() {
+        logger.info("Registration with data --> " + UserData.validEmail + " *** " + UserData.validPassword);
+
+        registration.enterPersonalData(UserData.validEmail, UserData.validPassword, UserData.validPassword)
+                .clickOnRegistrationButtonError()
+                .verifyErrorMessage(MessageData.alreadyExistsMessage);
+        registration.getHomePage();
+    }
+
     @Test
     public void registrationNegativeTestWithWrongPassConfirmation() {
         logger.info("Registration with data --> " + UserData.validEmail + " * " + UserData.validPassword + " * " + UserData.invalidPassConfirm);
 
         registration.enterPersonalData(UserData.validEmail, UserData.validPassword, UserData.invalidPassConfirm)
                 .verifyRepeatPassErrorMessage(MessageData.invalidPassConfirmMessage);
+        registration.getHomePage();
     }
 
     @Test
@@ -90,6 +93,7 @@ public class RegistrationTests extends TestBase {
 
         registration.enterPersonalData(UserData.emptyEmail, UserData.validPassword, UserData.validPassword)
                 .verifyEmailErrorMessage(MessageData.emailRequiredMessage);
+        registration.getHomePage();
     }
 
     @Test
@@ -98,6 +102,7 @@ public class RegistrationTests extends TestBase {
 
         registration.enterPersonalData(UserData.validEmail, UserData.emptyPassword, UserData.emptyPassword)
                 .verifyPasswordErrorMessage(MessageData.passwordRequiredMessage);
+        registration.getHomePage();
     }
 
     @Test
@@ -106,6 +111,7 @@ public class RegistrationTests extends TestBase {
 
         registration.enterPersonalData(UserData.validEmail, UserData.validPassword, UserData.emptyRepeatPass)
                 .verifyRepeatPassErrorMessage(MessageData.repeatPassRequiredMessage);
+        registration.getHomePage();
     }
 
 

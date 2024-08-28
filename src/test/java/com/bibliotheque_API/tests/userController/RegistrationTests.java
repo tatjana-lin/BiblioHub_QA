@@ -4,12 +4,12 @@ import com.bibliotheque.data.EndpointData;
 import com.bibliotheque.data.UserData;
 import com.bibliotheque.utils.DataProviders;
 import com.bibliotheque_API.dto.UserRequestDto;
-import com.bibliotheque_API.tests.TestBase;
+import com.bibliotheque_API.tests.TestBase_API;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class RegistrationTests extends TestBase {
+public class RegistrationTests extends TestBase_API {
 
     UserRequestDto requestDto = UserRequestDto.builder()
             .email(UserData.registerEmail)
@@ -17,23 +17,23 @@ public class RegistrationTests extends TestBase {
             .role(UserData.roleUser)
             .build();
 
-    @Test
-    public void registrationApiSuccessTest() {
-
-        given()
-                .contentType("application/json")
-                .body(requestDto)
-                .post(EndpointData.register)
-                .then()
-                .assertThat().statusCode(201);
-
-        given()
-                .contentType("application/json")
-                .body(requestDto)
-                .when()
-                .delete(EndpointData.delete);
-
-    }
+//    @Test
+//    public void registrationApiSuccessTest() {
+//
+//        given()
+//                .contentType("application/json")
+//                .body(requestDto)
+//                .post(EndpointData.register)
+//                .then()
+//                .assertThat().statusCode(201);
+//
+//        given()
+//                .contentType("application/json")
+//                .body(requestDto)
+//                .when()
+//                .delete(EndpointData.delete);
+//
+//    }
 
     @Test(dataProviderClass = DataProviders.class, dataProvider = "positiveRegistrationApi")
     public void registrationApiSuccessTestFromCsv(String email, String password) {
@@ -56,9 +56,6 @@ public class RegistrationTests extends TestBase {
 
     }
 
-
-//    ======================= падает имейл с 2мя точками (200)==================
-
     @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeRegistrationWithInvalidEmailApi")
     public void registrationApiNegativeTestWithInvalidEmailFromCsv(String email, String password) {
 
@@ -73,8 +70,6 @@ public class RegistrationTests extends TestBase {
                 .assertThat().statusCode(422);
     }
 
-
-    //    ========================= ER 422 AR 400 (кроме короткого) Пароль без мал.букв 201 ==============================
     @Test(dataProviderClass = DataProviders.class, dataProvider = "negativeRegistrationWithInvalidPassApi")
     public void registrationApiNegativeTestWithInvalidPasswordFromCsv(String email, String password) {
 

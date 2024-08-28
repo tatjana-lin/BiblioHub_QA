@@ -4,14 +4,14 @@ import com.bibliotheque.data.EndpointData;
 import com.bibliotheque.data.UserData;
 import com.bibliotheque_API.dto.LoginRequestDto;
 import com.bibliotheque_API.dto.RefreshRequestDto;
-import com.bibliotheque_API.tests.TestBase;
+import com.bibliotheque_API.tests.TestBase_API;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 
-public class RefreshTokenTests extends TestBase {
+public class RefreshTokenTests extends TestBase_API {
 
     LoginRequestDto requestDto = LoginRequestDto.builder()
             .email(UserData.validEmail)

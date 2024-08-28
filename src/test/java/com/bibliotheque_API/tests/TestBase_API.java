@@ -10,9 +10,11 @@ import org.testng.annotations.BeforeMethod;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-public class TestBase {
+public class TestBase_API {
 
-    Logger logger = LoggerFactory.getLogger(com.bibliotheque.tests.TestBase.class);
+    public static final String AUTH = "Authorization";
+
+    public static Logger logger = LoggerFactory.getLogger(com.bibliotheque.tests.TestBase.class);
 
     @BeforeMethod
     public void startTest(Method method, Object[] par){

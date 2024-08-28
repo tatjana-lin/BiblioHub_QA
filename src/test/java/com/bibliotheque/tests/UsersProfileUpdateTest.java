@@ -25,46 +25,30 @@ public class UsersProfileUpdateTest extends TestBase {
 
         home.getLoginPage()
                 .enterPersonalData(UserData.validEmail, UserData.validPassword)
+                .waitUntilAlertDisappears()
+                .clickOnLoginButton()
+                .clickOnUserNameLink();
+
+    }
+
+    @BeforeMethod(enabled = false)
+    public void preconditionDemo() {
+        home = new HomePage(driver);
+        login = new LoginPage(driver);
+        profile = new UsersProfilePage(driver);
+
+        home.getLoginPage()
+                .enterPersonalData(UserData.registerEmail, UserData.registerPassword)
+                .waitUntilAlertDisappears()
                 .clickOnLoginButton();
     }
 
-
-//    @BeforeMethod(enabled = true)
-//    public void preconditionDemo() {
-//        home = new HomePage(driver);
-//        login = new LoginPage(driver);
-//        profile = new UsersProfilePage(driver);
-//
-//        home.getLoginPage()
-//                .enterPersonalData(UserData.registerEmail, UserData.registerPassword)
-//                .clickOnLoginButton();
-//    }
-
-    @AfterMethod
-    public void logOut(ITestResult result) {
-        if (!result.isSuccess()) {
-            logger.error("Screenshot with error --> " + takeScreenshot());
-        }
-        profile.clickOnLogOutLink();
-    }
-
-//    ============================= удалить весь класс ? ================================
-
-//    @Test
-//    public void updateProfilePositiveTest() {
-//        profile.clickOnUpdateButton()
-//                .changePersonalData(UserData.house)
-//                .clickOnSaveButton()
-//                .clickOnReturnToTheMainPageLink();
-////        home.getUsersProfilePage()
-////                .verifyChangesAreSaved();
-//    }
-
     @Test
     public void fillInTheUsersProfilePositiveTest() {
-        profile.clickOnUpdateButton()
-                .enterPersonalData(UserData.firstName,
-                        UserData.lastName,
+        profile.waitUntilAlertDisappears()
+                .clickOnUpdateButton()
+                .enterPersonalData(UserData.lastName,
+                        UserData.firstName,
                         UserData.phone,
                         UserData.zip,
                         UserData.country,
@@ -74,7 +58,8 @@ public class UsersProfileUpdateTest extends TestBase {
                 .clickOnSaveButton()
                 .verifySuccessAlertIsPresent();
 
-        profile.clickOnUpdateButton()
+        profile.waitUntilAlertDisappears()
+                .clickOnUpdateButton()
                 .enterPersonalData(UserData.firstName,
                         UserData.lastName,
                         UserData.phone,
@@ -85,6 +70,13 @@ public class UsersProfileUpdateTest extends TestBase {
                         UserData.newHouse)
                 .clickOnSaveButton();
 
+    }
+    @AfterMethod
+    public void logOut(ITestResult result) {
+        if (!result.isSuccess()) {
+            logger.error("Screenshot with error --> " + takeScreenshot());
+        }
+        profile.clickOnLogOutLink();
     }
 
 }

@@ -5,7 +5,8 @@
         <classes>
             <class name="com.bibliotheque.tests.RegistrationTests"/>
             <class name="com.bibliotheque.tests.LoginTests"/>
-            <class name="com.bibliotheque.tests.UsersProfileUpdateTest"/>
+<!--            <class name="com.bibliotheque.tests.UsersProfileUpdateTest"/>-->
+            <class name="com.bibliotheque.tests.BookSearchTests"/>
             <class name="com.bibliotheque_API.tests.userController.RegistrationTests"/>
             <class name="com.bibliotheque_API.tests.authController.LoginTests"/>
             <class name="com.bibliotheque_API.tests.userController.UserUpdateTests"/>
@@ -13,6 +14,25 @@
             <class name="com.bibliotheque_API.tests.userController.UserUnlockTests"/>
             <class name="com.bibliotheque_API.tests.userController.GetAllUsersListTests"/>
             <class name="com.bibliotheque_API.tests.userController.DeleteUserTests"/>
+            <class name="com.bibliotheque_API.tests.libraryController.LibraryRegistrationTest"/>
+            <class name="com.bibliotheque_API.tests.libraryController.UpdateLibraryTest"/>
+            <class name="com.bibliotheque_API.tests.libraryController.GetLibraryByIdTest"/>
+            <class name="com.bibliotheque_API.tests.libraryController.GetLibraryByLibrarianIdTest"/>
+            <class name="com.bibliotheque_API.tests.libraryController.GetAllLibrariesTest"/>
+            <class name="com.bibliotheque_API.tests.libraryController.DeleteLibraryTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.AddBookTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.AddBooksFromJsonFileTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.UpdateBookTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.GetBookByIdTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.GetAllBooksListTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.GetBookByTitleTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.GetBookByAuthorTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.GetBookByIsbnTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.GetAllBooksInTheLibraryTest"/>
+            <class name="com.bibliotheque_API.tests.bookController.DeleteBookTest"/>
+            <class name="com.bibliotheque_API.tests.cartController.AddBookToCartTest"/>
+            <class name="com.bibliotheque_API.tests.cartController.GetAllBooksInTheCartTest"/>
+            <class name="com.bibliotheque_API.tests.cartController.DeleteBookFromTheCartTest"/>
         </classes>
     </test>
 

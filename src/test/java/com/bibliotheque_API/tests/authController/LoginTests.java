@@ -4,19 +4,20 @@ import com.bibliotheque.data.EndpointData;
 import com.bibliotheque.data.UserData;
 import com.bibliotheque.utils.DataProviders;
 import com.bibliotheque_API.dto.LoginRequestDto;
-import com.bibliotheque_API.tests.TestBase;
+import com.bibliotheque_API.tests.TestBase_API;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class LoginTests extends TestBase {
+public class LoginTests extends TestBase_API {
 
     LoginRequestDto requestDto = LoginRequestDto.builder()
             .email(UserData.validEmail)
             .password(UserData.validPassword)
             .build();
-//========================= падает. Проблема на бэке =================================
+
+
     @Test
     public void loginApiSuccessTest() {
 
@@ -85,9 +86,8 @@ public class LoginTests extends TestBase {
                 .when()
                 .post(EndpointData.login)
                 .then()
-                .assertThat().statusCode(400);
+                .assertThat().statusCode(422);
 
     }
-
 
 }

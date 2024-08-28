@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="RegistrationShort" verbose="1">
+    <test name="RegistrationTests">
+        <classes>
+            <class name="com.bibliotheque.tests.RegistrationTests">
+
+                <methods>
+                    <exclude name=".*Negative.*"/>
+                </methods>
+            </class>
+
+
+            <class name="com.bibliotheque_API.tests.userController.DeleteUserTests">
+                <methods>
+                    <include name=".*deleteUserApiSuccessTestFromCsvFront.*"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

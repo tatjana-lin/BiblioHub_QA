@@ -1,4 +1,4 @@
-package com.bibliotheque_API.tests.userController;
+package com.bibliotheque_API.tests.libraryController;
 
 import com.bibliotheque.data.EndpointData;
 import com.bibliotheque_API.tests.TestBase_API;
@@ -6,21 +6,17 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class GetAllUsersListTests extends TestBase_API {
-
+public class GetAllLibrariesTest extends TestBase_API {
 
     @Test
-    public void getAllUsersListApiSuccessTest() {
-
-//   Response response =
+    public void getAllLibrariesListApiSuccessTest() {
 
         given()
+//                .header(AUTH, UserData.libraryEmail)
                 .contentType("application/json")
-                .get(EndpointData.getAllUsers)
+                .get(EndpointData.getAllLibraries)
                 .then()
                 .assertThat().statusCode(200);
-
-//    response.body().prettyPrint();
 
     }
 

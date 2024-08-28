@@ -21,7 +21,7 @@ public class TestBase {
 
     protected static ApplicationManager app = new ApplicationManager(System.getProperty("browser", "chrome"));
 
-    Logger logger = LoggerFactory.getLogger(TestBase.class);
+   Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     //    @BeforeMethod
 //     public void startBrowser(Method method, Object[] par) {
@@ -65,7 +65,7 @@ public class TestBase {
 //        logger.info("***********************************************************************");
 //    }
 
-    @AfterSuite(enabled = false)
+    @AfterSuite(enabled = true)
     public void tearDown() {
         app.stopTest();
 

@@ -4,13 +4,13 @@ import com.bibliotheque.data.EndpointData;
 import com.bibliotheque.data.UserData;
 import com.bibliotheque_API.dto.UserRequestDto;
 import com.bibliotheque_API.dto.UserUpdateDto;
-import com.bibliotheque_API.tests.TestBase;
+import com.bibliotheque_API.tests.TestBase_API;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-
-public class UserUpdateTests extends TestBase {
+public class UserUpdateTests extends TestBase_API {
 
     UserRequestDto requestDto;
     int id;
@@ -30,8 +30,6 @@ public class UserUpdateTests extends TestBase {
                 .post(EndpointData.register)
                 .then()
                 .extract().path("id");
-
-        System.out.println(id);
 
     }
     UserUpdateDto updateDto = UserUpdateDto.builder()
@@ -58,6 +56,10 @@ public class UserUpdateTests extends TestBase {
                 .then()
                 .assertThat().statusCode(200);
 
+    }
+
+    @AfterMethod
+    public void deleteUser(){
         given()
                 .contentType("application/json")
                 .body(requestDto.getEmail())

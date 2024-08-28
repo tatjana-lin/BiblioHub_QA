@@ -3,12 +3,12 @@ package com.bibliotheque_API.tests.userController;
 import com.bibliotheque.data.EndpointData;
 import com.bibliotheque.data.UserData;
 import com.bibliotheque_API.dto.UserRequestDto;
-import com.bibliotheque_API.tests.TestBase;
+import com.bibliotheque_API.tests.TestBase_API;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class UserUnlockTests extends TestBase {
+public class UserUnlockTests extends TestBase_API {
 
     UserRequestDto requestDto = UserRequestDto.builder()
             .email(UserData.validEmail)

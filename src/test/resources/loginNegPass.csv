@@ -1,9 +1,8 @@
-test1@email.com,Vp1234$,8
-test1@email.com,VP12345$,small
-test1@email.com,vp12345$,capital
-test1@email.com,Vp123456,special
-test1@email.com,Vp$$$$$$,digit
-test1@email.com,V,8
-test1@email.com,Vp,8
-test1@email.com,Vp1$,8
-
+test1@email.com,Qwert1!,8
+test1@email.com,QWERTY1!,small
+test1@email.com,qwerty1!,capital
+test1@email.com,Qwerty11,special
+test1@email.com,Qwerty!!,digit
+test1@email.com,Q,8
+test1@email.com,Qw,8
+test1@email.com,Qw1!,8

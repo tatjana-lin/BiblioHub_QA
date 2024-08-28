@@ -4,26 +4,25 @@ import com.bibliotheque.data.EndpointData;
 import com.bibliotheque.data.UserData;
 import com.bibliotheque.utils.DataProviders;
 import com.bibliotheque_API.dto.UserRequestDto;
-import com.bibliotheque_API.tests.TestBase;
-import org.testng.annotations.BeforeMethod;
+import com.bibliotheque_API.tests.TestBase_API;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class DeleteUserTests extends TestBase {
-
-    UserRequestDto requestDto = UserRequestDto.builder()
-            .email(UserData.wrongEmail)
-            .password(UserData.wrongPassword)
-            .role(UserData.roleUser)
-            .build();
-
+public class DeleteUserTests extends TestBase_API {
     @Test
     public void deleteUserApiSuccessTest() {
+
+        UserRequestDto requestDto = UserRequestDto.builder()
+                .email(UserData.registerEmail)
+                .password(UserData.registerPassword)
+                .role(UserData.roleUser)
+                .build();
 
         given()
                 .contentType("application/json")
                 .body(requestDto)
+                .when()
                 .post(EndpointData.register);
 
         given()
@@ -41,7 +40,7 @@ public class DeleteUserTests extends TestBase {
 //        given()
 //                .contentType("application/json")
 //                .body(UserRequestDto.builder()
-//                        .email(UserData.registerEmail))
+//                        .email(UserData.registerEmail).build())
 //                .when()
 //                .delete(EndpointData.delete)
 //                .then()

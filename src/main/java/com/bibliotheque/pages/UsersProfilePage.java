@@ -5,8 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
 import java.util.List;
 
 public class UsersProfilePage extends BasePage {
@@ -75,7 +78,7 @@ public class UsersProfilePage extends BasePage {
 //=================== методы для проверки изменения профиля, можно удалить ============================================
 
     public UsersProfilePage clickOnUpdateButton() {
-        pause(500);
+//        pause(1000);
         click(updateButton);
         return this;
     }
@@ -118,11 +121,28 @@ public class UsersProfilePage extends BasePage {
     }
 
     @FindBy(css="[class*='success']")
-    List<WebElement> successAlert;
+    List<WebElement> successAlert1;
 
     public UsersProfilePage verifySuccessAlertIsPresent() {
-        pause(200);
-        Assert.assertTrue(isElementPresent(successAlert));
+        pause(1000);
+        Assert.assertTrue(isElementPresent(successAlert1));
+        return this;
+    }
+
+    public boolean logOutLinkIsPresent() {
+        if(shouldHaveText(logOutLink, "Log out", 100)){
+            return true;
+        }
+        return false;
+    }
+
+    @FindBy(css="[class*='Toastify']")
+    WebElement successAlert;
+    public UsersProfilePage waitUntilAlertDisappears() {
+        if(isElementVisible(successAlert)){
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.invisibilityOf(successAlert));}
+
         return this;
     }
 
