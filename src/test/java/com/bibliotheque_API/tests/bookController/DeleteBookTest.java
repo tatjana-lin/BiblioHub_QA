@@ -15,7 +15,7 @@ public class DeleteBookTest extends TestBase_API {
 
     int id;
 
-    @BeforeMethod
+    @BeforeMethod(enabled = true)
     public void precondition() {
 
         BookDto requestDto = BookDto.builder()

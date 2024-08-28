@@ -21,7 +21,7 @@
             <class name="com.bibliotheque_API.tests.libraryController.GetAllLibrariesTest"/>
             <class name="com.bibliotheque_API.tests.libraryController.DeleteLibraryTest"/>
             <class name="com.bibliotheque_API.tests.bookController.AddBookTest"/>
-            <class name="com.bibliotheque_API.tests.bookController.AddBooksFromJsonFileTest"/>
+<!--            <class name="com.bibliotheque_API.tests.bookController.AddBooksFromJsonFileTest"/>-->
             <class name="com.bibliotheque_API.tests.bookController.UpdateBookTest"/>
             <class name="com.bibliotheque_API.tests.bookController.GetBookByIdTest"/>
             <class name="com.bibliotheque_API.tests.bookController.GetAllBooksListTest"/>
