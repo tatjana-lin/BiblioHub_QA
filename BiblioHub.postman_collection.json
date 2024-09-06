@@ -1,0 +1,2853 @@
+{
+	"info": {
+		"_postman_id": "86395fc8-1ab0-4f83-9cfc-b2c08d2ec7a9",
+		"name": "BiblioHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36173549"
+	},
+	"item": [
+		{
+			"name": "User_Controller",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Registration User(201)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var id = JSON.parse(responseBody).id;\r",
+											"pm.environment.set(\"usersId\", id);\r",
+											"\r",
+											"var email = JSON.parse(responseBody).email;\r",
+											"pm.environment.set(\"usersEmail\", email);\r",
+											"\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test12@email.com\",\r\n\"password\": \"Qwerty12!\",\r\n\"role\": \"ROLE_USER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/register",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": {{usersId}},\r\n  \"email\": \"{{usersEmail}}\",\r\n  \"name\": \"Barbara\",\r\n  \"surname\": \"West\",\r\n  \"country\": \"Germany\",\r\n  \"city\": \"Hamm\",\r\n  \"street\": \"Lange\",\r\n  \"number\": \"1a\",\r\n  \"zip\": \"12345\",\r\n  \"phone\": \"491763333333\",\r\n  \"active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User adds a book to the cart(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/{userId}/books/{bookId}?userId=2&bookId=8",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"{userId}",
+										"books",
+										"{bookId}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "2"
+										},
+										{
+											"key": "bookId",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Block User(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"{{usersEmail}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/block",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"block"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Unlock User(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"{{usersEmail}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/unlock",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"unlock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Appoint as Admin (200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"{{usersEmail}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/set-role-admin",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"set-role-admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllUsersList(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User by email(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/{{usersEmail}}",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"{{usersEmail}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"{{usersEmail}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Negative",
+					"item": [
+						{
+							"name": "Registration User with invalid email(422)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test1@users..com\",\r\n\"password\": \"Test123!\",\r\n\"role\": \"ROLE_USER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/register",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registration User with empty Email(422)(exp 400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"\",\r\n\"password\": \"Test123!\",\r\n\"role\": \"ROLE_USER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/register",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registration User with invalid Pass(422)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test120@email.com\",\r\n\"password\": \"VP12345$\",\r\n\"role\": \"ROLE_USER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/register",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registration User with empty Pass(422)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test120@users.com\",\r\n\"password\": \"\",\r\n\"role\": \"ROLE_USER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/register",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registration User already exists(409)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test1@email.com\",\r\n\"password\": \"Qwerty1!\",\r\n\"role\": \"ROLE_USER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/register",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User with empty email(422)(exp 400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": {{usersId}},\r\n  \"email\": \"\",\r\n  \"name\": \"Barbara\",\r\n  \"surname\": \"West\",\r\n  \"country\": \"Germany\",\r\n  \"city\": \"Hamm\",\r\n  \"street\": \"Lange\",\r\n  \"number\": \"1a\",\r\n  \"zip\": \"12345\",\r\n  \"phone\": \"491763333333\",\r\n  \"active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User not found(404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": {{usersId}},\r\n  \"email\": \"{{usersEmail}}\",\r\n  \"name\": \"Barbara\",\r\n  \"surname\": \"West\",\r\n  \"country\": \"Germany\",\r\n  \"city\": \"Hamm\",\r\n  \"street\": \"Lange\",\r\n  \"number\": \"1a\",\r\n  \"zip\": \"12345\",\r\n  \"phone\": \"491763333333\",\r\n  \"active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User with invalid email(422)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": {{usersId}},\r\n  \"email\": \"test1email.com\",\r\n  \"name\": \"Barbara\",\r\n  \"surname\": \"West\",\r\n  \"country\": \"Germany\",\r\n  \"city\": \"Hamm\",\r\n  \"street\": \"Lange\",\r\n  \"number\": \"1a\",\r\n  \"zip\": \"12345\",\r\n  \"phone\": \"491763333333\",\r\n  \"active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Block User with invalid email (422)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test1email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/block",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"block"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Block User with empty email(422)(exp 400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/block",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"block"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Block already blocked User(409)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// pm.sendRequest({\r",
+											"//     url:\"http://localhost:8090/api/users/block\",\r",
+											"//     method:\"PUT\",\r",
+											"//     // header:{\"Authorization\":pm.environment.get(\"accessToken\")}\r",
+											"//     body:{\"email\": \"test1@email.com\"}\r",
+											"// },\r",
+											"// function(err,responseBody){\r",
+											"   \r",
+											"// })"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"blocked_user@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/block",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"block"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Block User not found(404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test120@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/block",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"block"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Unlock User with empty email(422)(exp 400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/unlock",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"unlock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Unlock User with invalid Email(422)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test1email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/unblock",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"unblock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Unlock the Non-Blocked User(409)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"unlocked_user@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/unblock",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"unblock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Unlock User not found(404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test120@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/unblock",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"unblock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Appoint the Admin as Admin(208)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 208\", function () {\r",
+											"    pm.response.to.have.status(208);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"admin1@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/appoint-as-admin",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"appoint-as-admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Appoint as Admin user not found(404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"admin100@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/appoint-as-admin",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"appoint-as-admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Appoint as Admin with invalid email(404)(exp 422)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 208\", function () {\r",
+											"    pm.response.to.have.status(208);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"admin1email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/appoint-as-admin",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"appoint-as-admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Appoint as Admin with empty email(404)(exp 400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users/appoint-as-admin",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"appoint-as-admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete non-existed User(404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test120@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User with invalid email(422)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 422\", function () {\r",
+											"    pm.response.to.have.status(422);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"test2email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User with empty email(400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"email\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/users",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Book_Conroller",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Add a Book(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Die Physiker\",\r\n  \"authorName\": \"Friedrich\",\r\n  \"authorSurname\": \"Dürrenmatt\",\r\n  \"year\": 1998,\r\n  \"isbn\": 9783257230475,\r\n  \"publisher\": \"Diogenes\",\r\n  \"libraryId\": {{libId}},\r\n  \"quantity\": 1,\r\n  \"available\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/books",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Book(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 8,\r\n  \"title\": \"Pride and Prejudice\",\r\n  \"authorName\": \"Jane\",\r\n  \"authorSurname\": \"Austen\",\r\n  \"year\": 2012,\r\n  \"isbn\": 9780141199078,\r\n  \"publisher\": \"Paperback\",\r\n  \"libraryId\": {{libId}},\r\n  \"quantity\": 10,\r\n  \"available\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/books",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Books List (200)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/books/all",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Books in the Library (200)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/books/library/3",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"library",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Books by Title (200)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/books/title=Heidi",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"title=Heidi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Books by ISBN (200)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/books/isbn=9780141199078",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"isbn=9780141199078"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Books by Author(200)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/books/author=Austen",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"author=Austen"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Book by ID(200)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/books/15",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"books",
+										"15"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Book by ID(200)",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api8090/api/books/9",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api8090",
+										"api",
+										"books",
+										"9"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Library_Controller",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Registration Library(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var id = JSON.parse(responseBody).id;\r",
+											"pm.environment.set(\"libId\", id);\r",
+											"\r",
+											"// var email = JSON.parse(responseBody).email;\r",
+											"// pm.environment.set(\"usersEmail\", email);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Library 22\",\r\n  \"country\": \"Germany\",\r\n  \"city\": \"Berlin\",\r\n  \"street\": \"Lange strasse\",\r\n  \"number\": \"2\",\r\n  \"zip\": \"22222\",\r\n  \"phone\": \"491762222222\",\r\n  \"librarian_id\": 3 \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/libraries/register",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"libraries",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Library(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": {{libId}},\r\n  \"name\": \"Library Second\",\r\n  \"country\": \"Germany\",\r\n  \"city\": \"Berlin\",\r\n  \"street\": \"Lange strasse\",\r\n  \"number\": \"2\",\r\n  \"zip\": \"21222\",\r\n  \"phone\": \"491762122222\",\r\n  \"librarian_id\": {{user_libId}} \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/libraries",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"libraries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Libraries by Librarian ID (200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// pm.test(\"Status code is 200\", function () {\r",
+											"//     pm.response.to.have.status(200);\r",
+											"// });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/libraries?librarianId={{user_libId}}",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"libraries"
+									],
+									"query": [
+										{
+											"key": "librarianId",
+											"value": "{{user_libId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Library by its id(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// pm.test(\"Status code is 200\", function () {\r",
+											"//     pm.response.to.have.status(200);\r",
+											"// });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/libraries/{{libId}}",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"libraries",
+										"{{libId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Libraries List (200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// pm.test(\"Status code is 200\", function () {\r",
+											"//     pm.response.to.have.status(200);\r",
+											"// });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/libraries/all",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"libraries",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Library(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// pm.test(\"Status code is 200\", function () {\r",
+											"//     pm.response.to.have.status(200);\r",
+											"// });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/libraries/{{libId}}",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"libraries",
+										"{{libId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Negative",
+					"item": [
+						{
+							"name": "Registration Library without name (403)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"\",\r\n  \"country\": \"Germany\",\r\n  \"city\": \"Berlin\",\r\n  \"street\": \"Karl strasse\",\r\n  \"number\": \"3\",\r\n  \"zip\": \"11111\",\r\n  \"phone\": \"491763333333\",\r\n  \"librarian_id\": 9 \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/bibliotek/register",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"bibliotek",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Library with Wrong ID(404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 0,\r\n  \"name\": \"Library First\",\r\n  \"country\": \"Germany\",\r\n  \"city\": \"Berlin\",\r\n  \"street\": \"Karl strasse\",\r\n  \"number\": \"11\",\r\n  \"zip\": \"11111\",\r\n  \"phone\": \"491761111111\",\r\n  \"librarian_id\": 9\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/bibliotek",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"bibliotek"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Library with non-existed ID(404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/bibliotek?id=4",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"bibliotek"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth_Controller",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Login Registered User(200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"pm.environment.set(\"accessToken\", jsonData.\r",
+											" accessToken);\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"pm.environment.set(\"refreshToken\", jsonData.\r",
+											" refreshToken);\r",
+											" "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"email\": \"test1@email.com\",\r\n    \"password\": \"Qwerty1!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/auth/login",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh (200)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// pm.test(\"Message equals to API message\", function () {\r",
+											"//     var jsonData = pm.response.json();\r",
+											"//     pm.expect(jsonData.message).to.eql(\"Успешно\");\r",
+											"// });\r",
+											"\r",
+											" "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"refreshToken\": \"{{refreshToken}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/auth/refresh",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Negative",
+					"item": [
+						{
+							"name": "Login User with wrong email (404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											" "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"email\": \"test120@email.com\",\r\n    \"password\": \"Qwerty1!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/auth/login",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login User with query in pass (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											" "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"email\": \"test1@email.com\",\r\n    \"password\": \"SELECT*FROM\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/auth/login",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login User with wrong Pass (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											" "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"email\": \"test1@email.com\",\r\n    \"password\": \"Qwerty2!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/auth/login",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login User with invalid email(422)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"// pm.test(\"Message equals to API message\", function () {\r",
+											"//     var jsonData = pm.response.json();\r",
+											"//     pm.expect(jsonData.message).to.eql(\"Login or Password incorrect\");\r",
+											"// });\r",
+											"// pm.test(\"Error equals to API error\", function () {\r",
+											"//     var jsonData = pm.response.json();\r",
+											"//     pm.expect(jsonData.error).to.eql(\"Unauthorized\");\r",
+											"// });\r",
+											"// pm.test(\"Content-Type is present\", function () {\r",
+											"//     pm.response.to.have.header(\"Content-Type\");\r",
+											"// });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"email\": \"test1@email..com\",\r\n    \"password\": \"Qwerty1!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/auth/login",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login User with invalid password(400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"email\": \"test1@email.com\",\r\n    \"password\": \"Qwerty1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/auth/login",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cart_Controller",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Get All Books in Users Cart(200)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/cart/{userId}?userId=1",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"{userId}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a Book into Users Cart(200)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/cart/1/books/8",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"1",
+										"books",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Book from Users Cart(200)",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/cart/{userId}/book/{bookId}?userId&bookId",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"{userId}",
+										"book",
+										"{bookId}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": null
+										},
+										{
+											"key": "bookId",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reserved_books_controller",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Get All booked Books of the User(200)(AR 403, 400)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/reserved/user/1",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"reserved",
+										"user",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User books all Books from the Cart(200)(400)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{BaseURI_BE}}/api/reserved/{userId}?userId=1",
+									"host": [
+										"{{BaseURI_BE}}"
+									],
+									"path": [
+										"api",
+										"reserved",
+										"{userId}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.test(\"Response time is less than 500ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+					"});"
+				]
+			}
+		}
+	]
+}
