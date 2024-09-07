@@ -1,4 +1,4 @@
-# BiblioHub
+# BiblioHub_QA
 ## Project Overview:
 This project aims to create a user-friendly and efficient platform enabling users to comfortably search for books in libraries around the world and reserve books from the library with the most convenient location.
 Users can search for books by title, author’s name or ISBN. They can reserve straight away or add a book to a wish-list in case it’s not immediately available.
