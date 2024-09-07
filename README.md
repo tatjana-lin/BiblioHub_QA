@@ -17,16 +17,16 @@ Key features include user registration and authentication, updating user profile
 ### Languages and Tools:
 <p align="left">
   <a href="https://www.selenium.dev/" target="_blank">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/selenium/selenium-original.svg" alt="Selenium" width="40" height="40"/>
+    <img src="images/selenium_logo.png" alt="Selenium" width="40" height="40"/>
   </a>
   <a href="https://rest-assured.io/" target="_blank">
     <img src="https://avatars.githubusercontent.com/u/19369327?s=200&v=4" alt="RestAssured" width="40" height="40"/>
   </a>
   <a href="https://testng.org/doc/" target="_blank">
-    <img src="https://drive.google.com/file/d/1BBGd2Qa_NBL1B_fIVfYniBf7TCDNRZn6/view?usp=drive_link" alt="TestNG" width="40" height="40"/>
+    <img src="images/testNG_logo.png" alt="TestNG" width="40" height="40"/>
   </a>
   <a href="https://projectlombok.org/" target="_blank">
-    <img src="https://projectlombok.org/assets/logo.png" alt="Lombok" width="40" height="40"/>
+    <img src="images/Lombok_logo.png" alt="Lombok" width="40" height="40"/>
   </a>
   <a href="https://wave.webaim.org/" target="_blank">
     <img src="https://wave.webaim.org/favicon.ico" alt="Wave" width="40" height="40"/>
@@ -50,9 +50,9 @@ Key features include user registration and authentication, updating user profile
     <img src="https://www.vectorlogo.zone/logos/atlassian_jira/atlassian_jira-icon.svg" alt="Jira" width="40" height="40"/>
   </a>
   <a href="https://www.mindmup.com/" target="_blank">
-    <img src="https://www.mindmup.com/favicon.ico" alt="MindMup" width="40" height="40"/>
+    <img src="images/mindMup_logo.png" alt="MindMup" width="40" height="40"/>
   </a>
   <a href="https://miro.com/" target="_blank">
-    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/miro.svg" alt="Miro" width="40" height="40"/>
+    <img src="images/Miro_logo.png" alt="Miro" width="40" height="40"/>
   </a>
 </p>
