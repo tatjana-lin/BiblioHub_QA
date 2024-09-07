@@ -47,12 +47,18 @@ Key features include user registration and authentication, updating user profile
     <img src="https://avatars.githubusercontent.com/u/10183815?s=48&v=4" alt="TestLink" width="40" height="40"/>
   </a>
   <a href="https://www.atlassian.com/software/jira" target="_blank">
-    <img src="https://www.vectorlogo.zone/logos/atlassian_jira/atlassian_jira-icon.svg" alt="Jira" width="40" height="40"/>
+    <img src="images/jira_logo.png" alt="Jira" width="40" height="40"/>
   </a>
   <a href="https://www.mindmup.com/" target="_blank">
     <img src="images/mindMup_logo.png" alt="MindMup" width="40" height="40"/>
   </a>
   <a href="https://miro.com/" target="_blank">
     <img src="images/Miro_logo.png" alt="Miro" width="40" height="40"/>
+  </a>
+  <a href="https://www.postgresql.org/" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="40" height="40"/>
+  </a>
+  <a href="https://code.visualstudio.com/" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" width="40" height="40"/>
   </a>
 </p>
