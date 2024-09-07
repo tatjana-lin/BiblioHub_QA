@@ -22,7 +22,7 @@ Key features include user registration and authentication, updating user profile
   <a href="https://rest-assured.io/" target="_blank">
     <img src="https://avatars.githubusercontent.com/u/19369327?s=200&v=4" alt="RestAssured" width="40" height="40"/>
   </a>
-  <a href="https://testng.org/doc/" target="_blank">
+  <a href="https://testng.org/" target="_blank">
     <img src="images/testNG_logo.png" alt="TestNG" width="40" height="40"/>
   </a>
   <a href="https://projectlombok.org/" target="_blank">
