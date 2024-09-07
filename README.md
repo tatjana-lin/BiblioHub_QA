@@ -14,3 +14,45 @@ Key features include user registration and authentication, updating user profile
 ### 3. Book reservation and wish-list
 - Authenticated Users can add books to their wish-list.
 - Authenticated Users can add books to cart and complete a reservation.
+### Languages and Tools:
+<p align="left">
+  <a href="https://www.selenium.dev/" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/selenium/selenium-original.svg" alt="Selenium" width="40" height="40"/>
+  </a>
+  <a href="https://rest-assured.io/" target="_blank">
+    <img src="https://avatars.githubusercontent.com/u/19369327?s=200&v=4" alt="RestAssured" width="40" height="40"/>
+  </a>
+  <a href="https://testng.org/doc/" target="_blank">
+    <img src="https://drive.google.com/file/d/1BBGd2Qa_NBL1B_fIVfYniBf7TCDNRZn6/view?usp=drive_link" alt="TestNG" width="40" height="40"/>
+  </a>
+  <a href="https://projectlombok.org/" target="_blank">
+    <img src="https://projectlombok.org/assets/logo.png" alt="Lombok" width="40" height="40"/>
+  </a>
+  <a href="https://wave.webaim.org/" target="_blank">
+    <img src="https://wave.webaim.org/favicon.ico" alt="Wave" width="40" height="40"/>
+  </a>
+  <a href="https://www.java.com/" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="40" height="40"/>
+  </a>
+  <a href="https://www.jetbrains.com/idea/" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/intellij/intellij-original.svg" alt="IntelliJ IDEA" width="40" height="40"/>
+  </a>
+  <a href="https://www.postman.com/" target="_blank">
+    <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" width="40" height="40"/>
+  </a>
+  <a href="https://www.jenkins.io/" target="_blank">
+    <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins" width="40" height="40"/>
+  </a>
+  <a href="https://testlink.org/" target="_blank">
+    <img src="https://avatars.githubusercontent.com/u/10183815?s=48&v=4" alt="TestLink" width="40" height="40"/>
+  </a>
+  <a href="https://www.atlassian.com/software/jira" target="_blank">
+    <img src="https://www.vectorlogo.zone/logos/atlassian_jira/atlassian_jira-icon.svg" alt="Jira" width="40" height="40"/>
+  </a>
+  <a href="https://www.mindmup.com/" target="_blank">
+    <img src="https://www.mindmup.com/favicon.ico" alt="MindMup" width="40" height="40"/>
+  </a>
+  <a href="https://miro.com/" target="_blank">
+    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/miro.svg" alt="Miro" width="40" height="40"/>
+  </a>
+</p>
