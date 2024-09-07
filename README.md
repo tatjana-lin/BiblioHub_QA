@@ -1,8 +1,12 @@
 # BiblioHub_QA
 ## Project Overview:
-This project aims to create a user-friendly and efficient platform enabling users to comfortably search for books in libraries around the world and reserve books from the library with the most convenient location.
-Users can search for books by title, author’s name or ISBN. They can reserve straight away or add a book to a wish-list in case it’s not immediately available.
-Key features include user registration and authentication, updating user profile, book search, adding to cart, adding to wish-list, and completing book reservation.
+This is my graduation project at the end of the QA Manual and Automation Tester course in AIT-TR school. I was a part of a student team. My role - QA engineer. 
+
+The goal of my project is automation of testing of the BiblioHub website created by our team. The project’s initial name was Bibliothèque. Here you can get acquainted with the code
+[Backend](https://github.com/Anarchitector/Bibliotheque_backend)
+[Frontend](https://github.com/Anarchitector/Bibliotheque_frontend).
+
+BiblioHub was developed as a user-friendly and efficient platform enabling users to comfortably search for books in libraries and reserve books from the library with the most convenient location. Users can search for books by title, author’s name or ISBN. Key features include user registration and authentication, updating user profile, book search, adding to cart and completing book reservation.
 ## Key Features:
 ### 1. User Authentication and Roles:
   - Users can register on the platform using email and password.
@@ -11,9 +15,9 @@ Key features include user registration and authentication, updating user profile
 ### 2. Book search
 - All users can perform a book search.
 - Users can search for books by title, author’s name or ISBN.
-### 3. Book reservation and wish-list
-- Authenticated Users can add books to their wish-list.
-- Authenticated Users can add books to cart and complete a reservation.
+### 3. Book reservation
+- All Users can add books to their cart.
+- Authenticated Users can complete a reservation.
 ### Languages and Tools:
 <p align="left">
   <a href="https://www.selenium.dev/" target="_blank">
