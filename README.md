@@ -1,6 +1,6 @@
 # BiblioHub_QA
 ## Project Overview:
-This is my graduation project after the QA Manual and Automation Tester course in AIT-TR school. I was a part of a student team. My role - QA engineer. 
+This is my graduation project after the QA Manual and Automation Tester course in AIT-TR school, Berlin, Germany. I was a part of a student team. My role - QA engineer. 
 
 The goal of my project is automation of testing of the BiblioHub website, created by our team. The project’s initial name was Bibliothèque. Here you can get acquainted with the code
 [Backend](https://github.com/Anarchitector/Bibliotheque_backend)
@@ -47,12 +47,54 @@ API testing was at first completed using Postman
 and then automated with the help of REST Assured and Lombok libraries.  
 In total I created 144 [API tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque_API/tests).  
 I also used Jenkins for continuous integration (CI).
-### 5. Bug-reports
+### 5. Execution & bug reports
 As a bug-tracking tool our team used Jira.   
 [KAN board](images/KAN_board.png)  
+### Bugs Found:🐞
+<table>
+  <tr>
+    <td>
 
+<!-- Первая таблица -->
+**UI bugs:**  
+| **Bugs Priority** | **Quantity** |
+|-------------------|--------------|
+| Highest           | 1            |
+| High              | 4            |
+| Medium            | 12           |
+| Low               | 0            |
+| **Total:**        | **17**       |
 
-### Languages and Tools:
+</td>
+    <td>
+
+<!-- Вторая таблица -->
+**API bugs:**
+| **Bugs Priority** | **Quantity** |
+|-------------------|--------------|
+| Highest           | 0            |
+| High              | 4            |
+| Medium            | 5            |
+| Low               | 0            |
+| **Total:**        | **9**        |
+
+</td>
+  </tr>
+</table>
+
+**Example of the most critical bugs:**  
+[BugReport1](https://docs.google.com/document/d/1fm6oByJL-_83cp3Tpso7AhuK6QR2We0D/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)  
+[BugReport2](https://docs.google.com/document/d/1Q_yg_3lKb7lPdnJyfLbxkplEQM8uae7h/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)  
+[BugReport3](https://docs.google.com/document/d/1voI42JOeFUi-AhGYYHB24LUpp6KlXLMV/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)  
+
+## 6. Results 
+
+All requirements were covered by tests  
+[Traceability matrix](images/Traceability_matrix.png)  
+Over 260 Autotests were run successfully after fixing the bugs  
+[Regression test summary](images/build.png)  
+****
+## Languages and Tools:
 <p align="left">
   <a href="https://www.selenium.dev/" target="_blank">
     <img src="images/selenium_logo.png" alt="Selenium" width="40" height="40"/>
