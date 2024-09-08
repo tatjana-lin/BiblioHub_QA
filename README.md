@@ -47,6 +47,10 @@ API testing was at first completed using Postman
 and then automated with the help of REST Assured and Lombok libraries.  
 In total I created 144 [API tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque_API/tests).  
 I also used Jenkins for continuous integration (CI).
+### 5. Bug-reports
+As a bug-tracking tool our team used Jira.   
+[KAN board](images/KAN_board.png)  
+
 
 ### Languages and Tools:
 <p align="left">
