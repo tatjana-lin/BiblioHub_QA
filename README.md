@@ -23,7 +23,17 @@ BiblioHub was developed as a user-friendly and efficient platform enabling users
 ### 1. Analysis
 At the very beginning of the project I created user-story based mind maps and state transition diagrams to visualize how the functionality of the application would work step by step. For this purpose I used tools like Miro and MindMup.  
 [MindMap registration](https://drive.google.com/file/d/1GoDu-2CfuY7apTdapgjR3aRDd6-9cQi3/view?usp=drive_link)  
-[MindMap login](https://drive.google.com/file/d/13hY0fHhJcMYtJQ9__PaOJhoHCzR9qA6B/view?usp=drive_link)
+[MindMap login](https://drive.google.com/file/d/13hY0fHhJcMYtJQ9__PaOJhoHCzR9qA6B/view?usp=drive_link)  
+[MindMap book search & reservation](https://drive.google.com/file/d/1hC6i_fRblskC1B77L-rONF2o3hi0WBcj/view?usp=drive_link)  
+[STD registration](https://drive.google.com/file/d/1c8twsXLNX1EtaSp4HOeqZzPpkB44uxL7/view?usp=drive_link)  
+[STD login](https://drive.google.com/file/d/14_vvoxusC0PhVsVjaZc7_GHvQ72HDv_j/view?usp=drive_link)  
+[STD book search](https://drive.google.com/file/d/14egzEPA9R1CJkodRXDuRgTh-RBC26PBQ/view?usp=drive_link)
+
+### 2. Planning
+In a team we developed a Test Plan, outlining the functions to test, test design techniques, acceptance criteria, and more. Then a Requirement Specification was created with the help of the TestLink management system.  
+[Test plan](https://drive.google.com/file/d/1WsVgYR7H76yXzTCSmeVoLPlB_iPpsDcC/view?usp=drive_link)  
+[Requirements spec](https://docs.google.com/document/d/1paCxmm0PGLtlIt26bxyprq1z2ZOXh2kL/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)
+
 
 ### Languages and Tools:
 <p align="left">
