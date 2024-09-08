@@ -40,7 +40,7 @@ In a team we wrote over 100 test cases in TestLink, both positive and negative. 
 [Table negative example](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/src/test/resources/regNegEmail.csv)
 
 ### 4. Test automation & execution 
-UI testing I automated with the help of Selenium (design pattern - Page Object Model) and TestNG. Additionally, I used a Logger and Screenshots for reports to ensure comprehensive logging of test execution.
+UI testing I automated with the help of Selenium (design pattern - Page Object Model) and TestNG. Additionally, I used a Logger and Screenshots for reports to ensure comprehensive logging of test execution.  
 In total I created 125 [UI tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque/tests).  
 API testing was at first completed using Postman
 [My Postman Collection](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/BiblioHub.postman_collection.json)  
