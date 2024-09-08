@@ -22,10 +22,10 @@ BiblioHub was developed as a user-friendly and efficient platform enabling users
 ## Testing Phases:
 ### 1. Analysis
 At the very beginning of the project I created user-story based mind maps and state transition diagrams to visualize how the functionality of the application would work step by step. For this purpose I used tools like Miro and MindMup.  
-[MindMap registration](images/Unregistered User registers.png)  
-[MindMap login](images/Registered User logs in.png)  
-[MindMap book search & reservation](images/Registered User finds & books a book.png)  
-[STD registration](images/Registration STD.png)  
+[MindMap registration](images/Unregistered_User_registers.png)  
+[MindMap login](images/Registered_User_logs_in.png)  
+[MindMap book search & reservation](images/Registered_User_books_a_book.png)  
+[STD registration](images/STD_registration.png)  
 [STD login](images/STD_login.png)  
 [STD book search](images/STD_bookSearch.png)
 
