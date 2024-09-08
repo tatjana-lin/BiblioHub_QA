@@ -34,7 +34,7 @@ In a team we developed a Test Plan, outlining the functions to test, test design
 [Test plan](https://drive.google.com/file/d/1WsVgYR7H76yXzTCSmeVoLPlB_iPpsDcC/view?usp=drive_link)  
 [Requirements spec](https://docs.google.com/document/d/1paCxmm0PGLtlIt26bxyprq1z2ZOXh2kL/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)
 ### 3. Test design
-In a team we wrote over 100 test cases in TestLink, both positive and negative. I also prepared a number of tables for the tests, using test design techniques such as equivalence partitioning and boundary value analysis. 
+In a team we wrote over 100 test cases in TestLink, both positive and negative. I also prepared a number of tables for the tests, using test design techniques such as equivalence partitioning and boundary value analysis.   
 [Test spec](https://docs.google.com/document/d/1tLP-NSAKJULIRasVYTczwzm7cK4-CYFb/edit)  
 [Table positive example](src/test/resources/user.csv)  
 [Table negative example](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/src/test/resources/regNegEmail.csv)  
