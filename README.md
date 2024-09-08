@@ -1,8 +1,8 @@
 # BiblioHub_QA
 ## Project Overview:
-This is my graduation project at the end of the QA Manual and Automation Tester course in AIT-TR school. I was a part of a student team. My role - QA engineer. 
+This is my graduation project after the QA Manual and Automation Tester course in AIT-TR school. I was a part of a student team. My role - QA engineer. 
 
-The goal of my project is automation of testing of the BiblioHub website created by our team. The project’s initial name was Bibliothèque. Here you can get acquainted with the code
+The goal of my project is automation of testing of the BiblioHub website, created by our team. The project’s initial name was Bibliothèque. Here you can get acquainted with the code
 [Backend](https://github.com/Anarchitector/Bibliotheque_backend)
 [Frontend](https://github.com/Anarchitector/Bibliotheque_frontend).
 
@@ -18,6 +18,13 @@ BiblioHub was developed as a user-friendly and efficient platform enabling users
 ### 3. Book reservation
 - All Users can add books to their cart.
 - Authenticated Users can complete a reservation.
+*****
+## Testing Phases:
+### 1. Analysis
+At the very beginning of the project I created user-story based mind maps and state transition diagrams to visualize how the functionality of the application would work step by step. For this purpose I used tools like Miro and MindMup.  
+[MindMap registration](https://drive.google.com/file/d/1GoDu-2CfuY7apTdapgjR3aRDd6-9cQi3/view?usp=drive_link)  
+[MindMap login](https://drive.google.com/file/d/13hY0fHhJcMYtJQ9__PaOJhoHCzR9qA6B/view?usp=drive_link)
+
 ### Languages and Tools:
 <p align="left">
   <a href="https://www.selenium.dev/" target="_blank">
