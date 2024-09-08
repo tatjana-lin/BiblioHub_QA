@@ -37,7 +37,16 @@ In a team we developed a Test Plan, outlining the functions to test, test design
 In a team we wrote over 100 test cases in TestLink, both positive and negative. I also prepared a number of tables for the tests, using test design techniques such as equivalence partitioning and boundary value analysis.   
 [Test spec](https://docs.google.com/document/d/1tLP-NSAKJULIRasVYTczwzm7cK4-CYFb/edit)  
 [Table positive example](src/test/resources/user.csv)  
-[Table negative example](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/src/test/resources/regNegEmail.csv)  
+[Table negative example](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/src/test/resources/regNegEmail.csv)
+
+### 4. Test automation & execution 
+UI testing I automated with the help of Selenium (design pattern - Page Object Model) and TestNG. Additionally, I used a Logger and Screenshots for reports to ensure comprehensive logging of test execution.
+In total I created 125 [UI tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque/tests).  
+API testing was at first completed using Postman
+[My Postman Collection](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/BiblioHub.postman_collection.json)  
+and then automated with the help of REST Assured and Lombok libraries.
+In total I created 144 [API tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque_API/tests).  
+I also used Jenkins for continuous integration (CI).
 
 ### Languages and Tools:
 <p align="left">
