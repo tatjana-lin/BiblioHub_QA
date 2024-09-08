@@ -44,7 +44,7 @@ UI testing I automated with the help of Selenium (design pattern - Page Object M
 In total I created 125 [UI tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque/tests).  
 API testing was at first completed using Postman
 [My Postman Collection](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/BiblioHub.postman_collection.json)  
-and then automated with the help of REST Assured and Lombok libraries.
+and then automated with the help of REST Assured and Lombok libraries.  
 In total I created 144 [API tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque_API/tests).  
 I also used Jenkins for continuous integration (CI).
 
