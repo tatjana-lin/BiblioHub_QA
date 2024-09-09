@@ -1,8 +1,7 @@
 # BiblioHub_QA
 ## Project Overview:
-This is my graduation project after the QA Manual and Automation Tester course in AIT-TR school, Berlin, Germany. I was a part of a student team. My role - QA engineer. 
-
-The goal of my project is automation of testing of the BiblioHub website, created by our team. The project’s initial name was Bibliothèque. Here you can get acquainted with the code
+This is my graduation project on completing the QA Manual and Automation Tester course at AIT-TR school, Berlin, Germany. I was part of a student team. My role was a QA engineer. 
+The goal of my project is design and implementation of manual and automated tests for the BiblioHub website created by our team. The project’s initial name was Bibliothèque. You can see the code here:
 [Backend](https://github.com/Anarchitector/Bibliotheque_backend)
 [Frontend](https://github.com/Anarchitector/Bibliotheque_frontend).
 
@@ -30,19 +29,19 @@ At the very beginning of the project I created a number of user-story based mind
 [STD book search](images/STD_bookSearch.png)
 
 ### 2. Planning
-In a team we developed a Test Plan, outlining the functions to test, test design techniques, acceptance criteria, and more. Then a Requirement Specification was created with the help of the ***TestLink*** management system.  
+As a team we developed a Test Plan, outlining the functions to be tested, test design techniques, acceptance criteria, and more. Then we created a Requirement Specification using the ***TestLink*** management system.  
 [Test plan](https://drive.google.com/file/d/1WsVgYR7H76yXzTCSmeVoLPlB_iPpsDcC/view?usp=drive_link)  
 [Requirements spec](https://docs.google.com/document/d/1paCxmm0PGLtlIt26bxyprq1z2ZOXh2kL/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)
 ### 3. Test design
-In a team we wrote over 100 test cases in TestLink, both positive and negative. I also prepared a number of tables for the tests, using test design techniques such as equivalence partitioning and boundary value analysis.   
+As a team we wrote over 100 test cases in TestLink, both positive and negative. I also prepared a number of tables with data sets for the tests, using test design techniques such as equivalence partitioning and boundary value analysis.   
 [Test spec](https://docs.google.com/document/d/1tLP-NSAKJULIRasVYTczwzm7cK4-CYFb/edit)  
 [Table positive example](src/test/resources/user.csv)  
 [Table negative example](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/src/test/resources/regNegEmail.csv)
 
 ### 4. Implementation 
-**UI testing** I automated with the help of ***Selenium*** (design pattern - Page Object Model) and ***TestNG***. Additionally, I used a ***Logger*** and ***Screenshots*** for reports to ensure comprehensive logging of test execution.  
+I automated **UI tests** with the help of ***Selenium*** (using Page Object Model design pattern) and ***TestNG***. Additionally, I used a ***Logger*** and ***Screenshots*** for reports to ensure comprehensive logging of test execution.  
 In total I created **125** [UI tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque/tests).  
-**API testing** was at first completed using ***Postman***
+**API testing** was initially done using ***Postman***
 [My Postman Collection](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/BiblioHub.postman_collection.json)  
 and then automated with the help of ***REST Assured*** and ***Lombok*** libraries.  
 In total I created **144** [API tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque_API/tests).  
