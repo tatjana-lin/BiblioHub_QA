@@ -1,4 +1,4 @@
-# BiblioHub_QA
+# BiblioHub_QA <img src="images/book1.png" alt="Book" width="75">
 ## Project Overview:
 This is my graduation project on completing the QA Manual and Automation Tester course at AIT-TR school, Berlin, Germany. I was part of a student team. My role was a QA engineer. 
 The goal of my project is design and implementation of manual and automated tests for the BiblioHub website created by our team. The project’s initial name was Bibliothèque. You can see the code here:
