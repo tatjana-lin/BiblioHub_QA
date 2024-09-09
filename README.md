@@ -21,7 +21,7 @@ BiblioHub was developed as a user-friendly and efficient platform enabling users
 *****
 ## Testing Phases:
 ### 1. Analysis
-At the very beginning of the project I created user-story based mind maps and state transition diagrams to visualize how the functionality of the application would work step by step. For this purpose I used tools like Miro and MindMup.  
+At the very beginning of the project I created a number of user-story based mind maps and state transition diagrams to visualize how the functionality of the application would work. For this purpose I used tools like ***Miro*** and ***MindMup***. Examples of mind maps and STD:  
 [MindMap registration](images/Unregistered_User_registers.png)  
 [MindMap login](images/Registered_User_logs_in.png)  
 [MindMap book search & reservation](images/Registered_User_books_a_book.png)  
@@ -30,7 +30,7 @@ At the very beginning of the project I created user-story based mind maps and st
 [STD book search](images/STD_bookSearch.png)
 
 ### 2. Planning
-In a team we developed a Test Plan, outlining the functions to test, test design techniques, acceptance criteria, and more. Then a Requirement Specification was created with the help of the TestLink management system.  
+In a team we developed a Test Plan, outlining the functions to test, test design techniques, acceptance criteria, and more. Then a Requirement Specification was created with the help of the ***TestLink*** management system.  
 [Test plan](https://drive.google.com/file/d/1WsVgYR7H76yXzTCSmeVoLPlB_iPpsDcC/view?usp=drive_link)  
 [Requirements spec](https://docs.google.com/document/d/1paCxmm0PGLtlIt26bxyprq1z2ZOXh2kL/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)
 ### 3. Test design
@@ -40,15 +40,15 @@ In a team we wrote over 100 test cases in TestLink, both positive and negative. 
 [Table negative example](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/src/test/resources/regNegEmail.csv)
 
 ### 4. Implementation 
-UI testing I automated with the help of Selenium (design pattern - Page Object Model) and TestNG. Additionally, I used a Logger and Screenshots for reports to ensure comprehensive logging of test execution.  
-In total I created 125 [UI tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque/tests).  
-API testing was at first completed using Postman
+**UI testing** I automated with the help of ***Selenium*** (design pattern - Page Object Model) and ***TestNG***. Additionally, I used a ***Logger*** and ***Screenshots*** for reports to ensure comprehensive logging of test execution.  
+In total I created **125** [UI tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque/tests).  
+**API** testing was at first completed using ***Postman***
 [My Postman Collection](https://github.com/tatjana-lin/Bibliotheque_QA/blob/main/BiblioHub.postman_collection.json)  
-and then automated with the help of REST Assured and Lombok libraries.  
-In total I created 144 [API tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque_API/tests).  
-I also used Jenkins for continuous integration (CI).
+and then automated with the help of ***REST Assured*** and ***Lombok*** libraries.  
+In total I created **144** [API tests](https://github.com/tatjana-lin/Bibliotheque_QA/tree/main/src/test/java/com/bibliotheque_API/tests).  
+I also used ***Jenkins*** for continuous integration (CI).
 ### 5. Execution & bug reports
-As a bug-tracking tool our team used Jira.   
+As a bug-tracking tool our team used ***Jira***.   
 [KAN board](images/KAN_board.png)  
 ### Bugs Found:🐞
 <table>
