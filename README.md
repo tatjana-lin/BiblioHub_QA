@@ -128,6 +128,9 @@ Over 260 Autotests were run successfully after fixing the bugs
   <a href="https://www.atlassian.com/software/jira" target="_blank">
     <img src="images/jira_logo.png" alt="Jira" width="40" height="40"/>
   </a>
+  <a href="https://swagger.io/" target="_blank">
+    <img src="images/swagger_logo.png" alt="Swagger" width="40" height="40"/>
+  </a>
   <a href="https://www.mindmup.com/" target="_blank">
     <img src="images/mindMup_logo.png" alt="MindMup" width="40" height="40"/>
   </a>
