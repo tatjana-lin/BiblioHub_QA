@@ -84,7 +84,7 @@ As a bug-tracking tool our team used ***Jira***.
 **Example of the most critical bugs:**  
 [BugReport1](https://docs.google.com/document/d/1fm6oByJL-_83cp3Tpso7AhuK6QR2We0D/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)  
 [BugReport2](https://docs.google.com/document/d/1Q_yg_3lKb7lPdnJyfLbxkplEQM8uae7h/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)  
-[BugReport3](https://docs.google.com/document/d/1voI42JOeFUi-AhGYYHB24LUpp6KlXLMV/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)  
+[BugReport3](https://docs.google.com/document/d/1Zh4Cbg-waVZXTj5MpL9EfjQ9bTo0VV1U/edit?usp=drive_link&ouid=115695229689061073439&rtpof=true&sd=true)  
 
 ## 6. Results 
 
